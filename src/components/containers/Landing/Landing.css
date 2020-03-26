@@ -1,0 +1,40 @@
+.landing-container {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.class-landing-h1 {
+  text-align: center;
+  /* margin-top: 50px; */
+  color: #f1f3f4;
+  height: auto;
+  position: absolute;
+  top: 70%;
+  left: 55%;
+  background-color: transparent;
+  text-shadow: 0 0 3rem rgba(33, 158, 175, 0.9);
+}
+/* .class-btn-google-sign-in {
+  text-align: center;
+  margin-top: 50px;
+} */
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: .7;
+    overflow: hidden;
+}
+
+.video-content {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

@@ -1,0 +1,19 @@
+.dashboard-container {
+  /* margin: 150px auto 0 auto; */
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 60px; */
+  justify-content: flex-start;
+  /* align-content: center; */
+  position: absolute;
+  top: 56px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1f3f4;
+}
+.search-container {
+  margin-top: 20px;
+  align-self: center;
+}

@@ -1,0 +1,87 @@
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+  width: 100%;
+  background: #512b58;
+  height: 56px;
+}
+.toolbar-navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+.toolbar-logo {
+  margin-left: 0.5rem;
+}
+.toolbar-logo a {
+  color: #f1f3f4;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+.toolbar-navigation-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.toolbar-navigation-items li {
+  padding: 0 0.5rem;
+}
+.toolbar-navigation-items a {
+  text-decoration: none;
+}
+.toolbar-navigation-items a:hover,
+.toolbar-navigation-items a:active {
+  color: #79bac1;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.user-email {
+  color: #f1f3f4;
+}
+
+.logout {
+  color: #f1f3f4;
+  width: 10rem;
+  flex: 0 0 18%;
+  margin-left: 1rem;
+}
+
+.signin-signup {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signin {
+  margin-left: 1rem;
+  color: #f1f3f4;
+}
+
+.signup {
+  color: #f1f3f4
+}
+
+.spacer {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .toolbar-navigation-items {
+    display: none;
+  }
+}
+@media (min-width: 769px) {
+  .toolbar-toggle-button {
+    display: none;
+  }
+  .toolbar-logo {
+    margin: 0;
+  }
+}
