@@ -8,7 +8,8 @@ class SearchBar extends React.Component {
     isSelected: false,
     selected: "",
     isOpen: false,
-    info: null
+    name: '',
+    picture: ''
   };
 
   componentDidMount() {
@@ -65,14 +66,16 @@ class SearchBar extends React.Component {
   openModalHandler = (info) => {
     this.setState({
       isOpen: !this.state.isOpen,
-      info: info
+      name: info.name,
+      picture: info.picture
     })
    };
  
     closeModalHandler = () => {
      this.setState({
        isOpen: !this.state.isOpen,
-       info: ''
+       name: '',
+       picture: ''
      })
    };
 
@@ -91,7 +94,8 @@ class SearchBar extends React.Component {
           openModalHandler={this.openModalHandler}
           isOpen={this.state.isOpen}
           closeModalHandler={this.closeModalHandler}
-          info={this.state.info}
+          name={this.state.name}
+          picture={this.state.picture}
         />
       </div>
     );

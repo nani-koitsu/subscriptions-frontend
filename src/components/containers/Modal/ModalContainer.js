@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { connect } from "react-redux";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -18,13 +19,13 @@ const customStyles = {
 };
 
 Modal.setAppElement("#root");
-
-export default class ModalContainer extends React.Component {
+class ModalContainer extends React.Component {
 
   state = {
     startDate: new Date(),
     price: 0,
-    subscriptionType: ''
+    subscriptionType: '',
+    subscriptionName: ''
   }
 
   openModal = () => {
@@ -50,14 +51,22 @@ export default class ModalContainer extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
+    
     console.log(this.state)
   }
-  render() {
-    let name = '';
-   
-    if (this.props.info !== null) {
-      name = this.props.info.name;
+
+  componentDidUpdate(prevProp, prevState) {
+    
+    if (prevProp.name !== this.props.name) {
+      this.setState({
+        subscriptionName: this.props.name
+      })
     }
+
+  }
+
+  render() {
+  
 
     return (
       <div>
@@ -69,11 +78,11 @@ export default class ModalContainer extends React.Component {
         contentLabel="Example Modal"
       >
         {
-          this.props.isOpen ? ( <> <h1>{name}</h1>
+          this.props.isOpen ? ( <> <h1>{this.props.name}</h1>
             <img
                   className="search-image"
-                  src={require(`../../../assets/img/${name}.png`)}
-                  alt={name}
+                  src={require(`../../../assets/img/${this.props.name}.png`)}
+                  alt={this.props.name}
                 ></img>
                 <form onSubmit={this.onSubmit}>
                 <label htmlFor="">Due Date</label>
@@ -81,6 +90,9 @@ export default class ModalContainer extends React.Component {
                     selected={this.state.startDate}
                     onChange={this.handleDateChange}
                   />
+                  <br />
+                  <label htmlFor="">Subscription Name</label>
+                  <input type="text" name='subscriptionName' value={this.props.name} onChange={this.handleChange} />
                   <br />
                   <label htmlFor="">Price</label>
                   <input type="number" name='price' value={this.state.price} onChange={this.handleChange} />
@@ -106,3 +118,11 @@ export default class ModalContainer extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    authUser: state.authUser
+  };
+};
+
+export default connect(mapStateToProps, null)(ModalContainer);
