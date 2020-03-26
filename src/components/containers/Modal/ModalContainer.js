@@ -1,22 +1,23 @@
 import React from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
+import './ModalContainer.css';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    width: '500px',
+// const customStyles = {
+//   content: {
+//     top: "50%",
+//     left: "50%",
+//     right: "auto",
+//     bottom: "auto",
+//     width: '500px',
 
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
+//     marginRight: "-50%",
+//     transform: "translate(-50%, -50%)"
+//   }
+// };
 
 Modal.setAppElement("#root");
 class ModalContainer extends React.Component {
@@ -30,13 +31,13 @@ class ModalContainer extends React.Component {
 
   openModal = () => {
     this.props.openModalHandler();
-   }; 
+  };
   closeModal = () => {
 
-     this.props.closeModalHandler();
-   };
+    this.props.closeModalHandler();
+  };
 
-   handleDateChange = date => {
+  handleDateChange = date => {
     this.setState({
       startDate: date
     });
@@ -51,12 +52,12 @@ class ModalContainer extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    
+
     console.log(this.state)
   }
 
   componentDidUpdate(prevProp, prevState) {
-    
+
     if (prevProp.name !== this.props.name) {
       this.setState({
         subscriptionName: this.props.name
@@ -66,27 +67,31 @@ class ModalContainer extends React.Component {
   }
 
   render() {
-  
+
 
     return (
       <div>
-      <Modal
-        onClick={this.openModal}
-        isOpen={this.props.isOpen}
-        onRequestClose={this.closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {
-          this.props.isOpen ? ( <> <h1>{this.props.name}</h1>
-            <img
-                  className="search-image"
-                  src={require(`../../../assets/img/${this.props.name}.png`)}
-                  alt={this.props.name}
-                ></img>
-                <form onSubmit={this.onSubmit}>
-                <label htmlFor="">Due Date</label>
-                <DatePicker
+        <Modal
+          onClick={this.openModal}
+          isOpen={this.props.isOpen}
+          onRequestClose={this.closeModal}
+          className="modal-container"
+          contentLabel="Example Modal"
+        >
+          {
+            this.props.isOpen ? (
+              <>
+                <div className="sub-info">
+                  <img
+                    className="search-image modal-image"
+                    src={require(`../../../assets/img/${this.props.name}.png`)}
+                    alt={this.props.name}
+                  ></img>
+                  <h1 className='search-name'>Company Name: {this.props.name}</h1>
+                </div>
+                <form onSubmit={this.onSubmit} className="form-info">
+                  <label htmlFor="">Due Date</label>
+                  <DatePicker
                     selected={this.state.startDate}
                     onChange={this.handleDateChange}
                   />
@@ -98,23 +103,23 @@ class ModalContainer extends React.Component {
                   <input type="number" name='price' value={this.state.price} onChange={this.handleChange} />
                   <br />
                   <label htmlFor="">Type of Subscription </label>
-                  <div className="custom-select" style={{width:200}}>
+                  <div className="custom-select" style={{ width: 200 }}>
                     <select name='subscriptionType' onChange={this.handleChange}>
                       <option value="0">Select Subscription:</option>
                       <option value="Weekly">Weekly</option>
                       <option value="Bi Weekly">Bi Weekly</option>
-                      <option value="Montly">Montly</option>
+                      <option value="Monthly">Monthly</option>
                       <option value="Yearly">Yearly</option>
                     </select>
                   </div>
                   <button>Submit</button> <button onClick={this.closeModal}>Cancel</button>
                 </form>
-                </>
+              </>
 
-                ) : ''
-        }
-      </Modal>
-    </div>
+            ) : ''
+          }
+        </Modal>
+      </div>
     )
   }
 }
