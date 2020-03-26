@@ -63,7 +63,8 @@ class Signin extends Component {
         .catch(e => {
           // const { message } = e.response.data;
           // this.setState({ error: message });
-          throw new Error(e);
+          // throw new Error(e);
+          console.log(e);
         });
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");

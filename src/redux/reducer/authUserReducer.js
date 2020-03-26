@@ -1,13 +1,12 @@
 import {
   AUTH_USER_SIGN_IN_SUCCESSFUL,
   AUTH_USER_LOGOUT
-} from "../actionTypes/authUserActionTypes";
+} from "../actionTypes/actionTypes";
 import { jwtDecodeTokenAndSetUser } from "./helpers/authReducerHelper";
 
 const initialState = {
   isAuthenticated: false,
-  user: null,
-  selectedSearch: "",
+  user: {},
   subscriptionsList: [
     "Netflix",
     "ESPN",

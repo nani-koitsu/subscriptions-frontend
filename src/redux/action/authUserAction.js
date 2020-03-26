@@ -1,7 +1,7 @@
 import {
   AUTH_USER_SIGN_IN_SUCCESSFUL,
   AUTH_USER_LOGOUT
-} from "../actionTypes/authUserActionTypes";
+} from "../actionTypes/actionTypes";
 
 import setAuthToken from "../../lib/Axios/setAuthToken";
 import Axios from "../../lib/Axios/Axios";
@@ -54,24 +54,21 @@ export const logout = () => dispatch => {
   });
 };
 
-export const addSubscription = (info) => async  dispatch => {
-
+export const addSubscription = info => async dispatch => {
   try {
-    await Axios.post("/api/users/", info);
+    await Axios.post("/api/users/subscriptions", info);
+    return Promise.resolve();
   } catch (e) {
-
+    return Promise.reject(e);
   }
-
-
-}
-
+};
 
 /*
 
 [
   {
-    subscriptName: 
-    aksdkljasdj 
+    subscriptName:
+    aksdkljasdj
     asdkasdjk
   }
 ]

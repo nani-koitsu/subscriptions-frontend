@@ -1,17 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 class SearchForm extends Component {
-    render() {
-        console.log(this.props)
-        return (
-            <div>
-                {this.props.itemName}
-            </div>
-        )
-    }
+  render() {
+    console.log("SEARCH FORM", this.props);
+    return <div>{this.props.itemName}</div>;
+  }
 }
 
-
-export default SearchForm
+export default SearchForm;
 
 //random change

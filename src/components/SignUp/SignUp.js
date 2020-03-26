@@ -66,8 +66,9 @@ class Signup extends Component {
           this.props.history.push("/signin");
         })
         .catch(e => {
-          const { message } = e.response.data;
-          this.setState({ error: message });
+          console.log(e);
+          // const { message } = e.response.data;
+          // this.setState({ error: message });
         });
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
