@@ -53,3 +53,28 @@ export const logout = () => dispatch => {
     type: AUTH_USER_LOGOUT
   });
 };
+
+export const addSubscription = (info) => async  dispatch => {
+
+  try {
+    await Axios.post("/api/users/", info);
+  } catch (e) {
+
+  }
+
+
+}
+
+
+/*
+
+[
+  {
+    subscriptName: 
+    aksdkljasdj 
+    asdkasdjk
+  }
+]
+
+
+*/
