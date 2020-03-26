@@ -8,8 +8,8 @@ class SearchBar extends React.Component {
     isSelected: false,
     selected: "",
     isOpen: false,
-    name: '',
-    picture: ''
+    name: "",
+    picture: ""
   };
 
   componentDidMount() {
@@ -31,7 +31,6 @@ class SearchBar extends React.Component {
   };
 
   handleOnClick = info => {
-
     this.openModalHandler(info);
     // const value = e.target.alt;
     // console.log(value);
@@ -49,12 +48,20 @@ class SearchBar extends React.Component {
     return (
       <ul className="sub-list">
         {searchSuggestions.map((item, index) => (
-          <li className="sub-item" key={index} onClick={() => this.handleOnClick({name: item, picture: `../../assets/img/${item}.png`})}>
+          <li
+            className="sub-item"
+            key={index}
+            onClick={() =>
+              this.handleOnClick({
+                name: item,
+                picture: `../../assets/img/${item}.png`
+              })
+            }
+          >
             <img
               className="search-image"
               src={require(`../../assets/img/${item}.png`)}
               alt={item}
-           
             ></img>
             <p className="search-button">{item}</p>
           </li>
@@ -63,21 +70,21 @@ class SearchBar extends React.Component {
     );
   };
 
-  openModalHandler = (info) => {
+  openModalHandler = info => {
     this.setState({
       isOpen: !this.state.isOpen,
       name: info.name,
       picture: info.picture
-    })
-   };
- 
-    closeModalHandler = () => {
-     this.setState({
-       isOpen: !this.state.isOpen,
-       name: '',
-       picture: ''
-     })
-   };
+    });
+  };
+
+  closeModalHandler = () => {
+    this.setState({
+      isOpen: !this.state.isOpen,
+      name: "",
+      picture: ""
+    });
+  };
 
   render() {
     return (
@@ -90,7 +97,7 @@ class SearchBar extends React.Component {
         />
 
         {this.renderSearch()}
-        <ModalContainer 
+        <ModalContainer
           openModalHandler={this.openModalHandler}
           isOpen={this.state.isOpen}
           closeModalHandler={this.closeModalHandler}
