@@ -12,10 +12,7 @@ export const addUserSubscription = subInfo => async dispatch => {
     startDate: subInfo.subscriptionType
   };
   try {
-    let success = await Axios.post(
-      "/subscriptions/create-subscription",
-      subObj
-    );
+    let success = await Axios.post("/create-subscription", subObj);
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
       payload: success.data

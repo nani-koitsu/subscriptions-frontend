@@ -1,23 +1,24 @@
 import React from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
+import { addUserSubscription } from "../../../redux/action/subscriptionAction";
 import "./ModalContainer.css";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-// const customStyles = {
-//   content: {
-//     top: "50%",
-//     left: "50%",
-//     right: "auto",
-//     bottom: "auto",
-//     width: '500px',
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    width: "500px",
 
-//     marginRight: "-50%",
-//     transform: "translate(-50%, -50%)"
-//   }
-// };
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+};
 
 Modal.setAppElement("#root");
 class ModalContainer extends React.Component {
