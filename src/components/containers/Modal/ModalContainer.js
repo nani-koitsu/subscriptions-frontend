@@ -58,6 +58,7 @@ class ModalContainer extends React.Component {
       subscriptionName,
       image
     } = this.state;
+
     const submitObj = {
       startDate,
       price,
@@ -66,6 +67,7 @@ class ModalContainer extends React.Component {
       image,
       submittedBy: this.props.authUser.user.id
     };
+
     this.props
       .addUserSubscription(submitObj)
       .then(() => {

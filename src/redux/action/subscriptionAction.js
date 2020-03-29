@@ -10,7 +10,7 @@ export const addUserSubscription = subInfo => async dispatch => {
     subscriptionType: subInfo.subscriptionType,
     price: subInfo.price,
     startDate: subInfo.subscriptionType,
-    submitedBy: subInfo.id
+    submitedBy: subInfo.submittedBy
   };
   try {
     let success = await Axios.post("/subscription/create-subscription", subObj);
