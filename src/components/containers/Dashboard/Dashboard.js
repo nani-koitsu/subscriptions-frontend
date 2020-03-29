@@ -14,7 +14,7 @@ class Dashboard extends Component {
     if (!this.props.authUser.isAuthenticated) {
       this.props.history.push("/signin");
     }
-    console.log(`dashboard : `, this.props.authUser);
+    console.log(`Dashboard componentDidMount : `, this.props.authUser);
   }
   openSelectedSubscription = () => {};
   render() {

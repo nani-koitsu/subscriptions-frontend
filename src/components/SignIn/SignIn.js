@@ -43,7 +43,7 @@ class Signin extends Component {
     e.preventDefault();
     if (formValid(this.state)) {
       console.log(`
-        === SUBMITTING
+        SUBMITTING
         Email: ${this.state.email}
         Password: ${this.state.password}
       `);

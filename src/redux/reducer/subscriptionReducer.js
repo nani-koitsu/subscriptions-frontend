@@ -5,7 +5,7 @@ import {
 
 const initialState = {
   subscriptions: [],
-  subscriptionCompany: null
+  subscriptionCompany: ""
 };
 
 export default function(state = initialState, action) {

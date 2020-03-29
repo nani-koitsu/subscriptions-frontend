@@ -54,15 +54,6 @@ export const logout = () => dispatch => {
   });
 };
 
-export const addSubscription = info => async dispatch => {
-  try {
-    await Axios.post("/api/users/subscriptions", info);
-    return Promise.resolve();
-  } catch (e) {
-    return Promise.reject(e);
-  }
-};
-
 /*
 
 [

@@ -8,17 +8,18 @@ export const addUserSubscription = subInfo => async dispatch => {
   let subObj = {
     subscriptionName: subInfo.subscriptionName,
     subscriptionType: subInfo.subscriptionType,
-    price: subInfo.subscriptionType,
-    startDate: subInfo.subscriptionType
+    price: subInfo.price,
+    startDate: subInfo.subscriptionType,
+    submitedBy: subInfo.id
   };
   try {
-    let success = await Axios.post("/create-subscription", subObj);
+    let success = await Axios.post("/subscription/create-subscription", subObj);
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
       payload: success.data
     });
     console.log(success);
-    Promise.resolve(success);
+    Promise.resolve(success.data);
   } catch (error) {
     console.log((`here it is:`, error));
     return Promise.reject(error);

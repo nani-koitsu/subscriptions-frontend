@@ -11,7 +11,7 @@ class Toolbar extends Component {
     let navigation = null;
 
     if (this.props.authUser.isAuthenticated) {
-      console.log(this.props.authUser.user);
+      console.log("Toolbar :", this.props.authUser.user);
       navigation = (
         <div className="logout-container">
           <div className="user-email">{this.props.authUser.user.email}</div>
