@@ -77,7 +77,7 @@ class ModalContainer extends React.Component {
           subscriptionType: "",
           subscriptionName: ""
         });
-        this.closeModal();
+        this.closeModal().then(() => this.props.history.push("/dashboard"));
       })
       .catch(e => {
         console.log(e);
