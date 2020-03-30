@@ -9,7 +9,7 @@ const UserSubscription = props => {
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
-          <img src={Spotify} className="sub-image"></img>
+          <img src={Spotify} className="sub-image" alt=""></img>
         </div>
         <p className="sub-name">{props.subscriptionName}</p>
         <div className="spacer"></div>
