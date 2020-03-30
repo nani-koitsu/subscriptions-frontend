@@ -73,10 +73,11 @@ class ModalContainer extends React.Component {
       .then(() => {
         this.setState({
           startDate: "",
-          price: null,
+          price: 0,
           subscriptionType: "",
           subscriptionName: ""
         });
+        this.closeModal();
       })
       .catch(e => {
         console.log(e);
