@@ -5,14 +5,8 @@ import {
 import Axios from "../../lib/Axios/Axios";
 
 export const addUserSubscription = subInfo => async dispatch => {
-  let subObj = {
-    subscriptionName: subInfo.subscriptionName,
-    subscriptionType: subInfo.subscriptionType,
-    price: subInfo.subscriptionType,
-    startDate: subInfo.subscriptionType
-  };
   try {
-    let success = await Axios.post("/create-subscription", subObj);
+    let success = await Axios.post("/subscriptions/create-subscription", subInfo);
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
       payload: success.data

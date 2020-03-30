@@ -50,9 +50,8 @@ class ModalContainer extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
-    console.log(this.props.subscription);
     let { createdBy } = this.props.authUser.user.id;
-    const { startDate, price, subscriptionType, subscriptionName } = this.props;
+    const { startDate, price, subscriptionType, subscriptionName } = this.state;
     const submitObj = {
       startDate,
       price,
@@ -136,7 +135,7 @@ class ModalContainer extends React.Component {
                     <option value="Yearly">Yearly</option>
                   </select>
                 </div>
-                <button>Submit</button>{" "}
+                <button type='submit'>Submit</button>{" "}
                 <button onClick={this.closeModal}>Cancel</button>
               </form>
             </>
