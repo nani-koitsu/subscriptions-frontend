@@ -4,19 +4,19 @@ import "./Subscriptions.css";
 import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
 
-const trackedSubscription = props => (
-  <>
+const UserSubscription = props => {
+  return (
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
-          <img src={Spotify} alt="NetflixLogo" className="sub-image"></img>
+          <img src={Spotify} className="sub-image"></img>
         </div>
-        <p className="sub-name">Spotify</p>
+        <p className="sub-name">{props.subscriptionName}</p>
         <div className="spacer"></div>
         <div className="subscription-row-items">
           <ul>
-            <li>Monthly</li>
-            <li>Renews on Mar 25 2020</li>
+            <li>{props.price}</li>
+            <li>{props.subscriptionType}</li>
           </ul>
         </div>
         <button className="sub-button">
@@ -27,7 +27,7 @@ const trackedSubscription = props => (
         </button>
       </div>
     </div>
-  </>
-);
+  );
+};
 
-export default trackedSubscription;
+export default UserSubscription;

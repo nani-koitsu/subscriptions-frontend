@@ -48,31 +48,41 @@ class ModalContainer extends React.Component {
     });
   };
 
-  onSubmit = e => {
+  onSubmit = async e => {
     e.preventDefault();
-    let { createdBy } = this.props.authUser.user.id;
-    const { startDate, price, subscriptionType, subscriptionName } = this.state;
+    console.log("MODALCONTAINER ON SUBMIT :", this.props.authUser.user.id);
+    const {
+      startDate,
+      price,
+      subscriptionType,
+      subscriptionName,
+      image
+    } = this.state;
+
     const submitObj = {
       startDate,
       price,
       subscriptionType,
       subscriptionName,
-      createdBy
+      image,
+      submittedBy: this.props.authUser.user.id
     };
+
     this.props
       .addUserSubscription(submitObj)
       .then(() => {
         this.setState({
-          startDate: new Date(),
+          startDate: "",
           price: 0,
           subscriptionType: "",
           subscriptionName: ""
         });
+        this.closeModal();
       })
       .catch(e => {
         console.log(e);
       });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   componentDidUpdate(prevProp, prevState) {
@@ -131,7 +141,7 @@ class ModalContainer extends React.Component {
                     <option value="0">Select Subscription:</option>
                     <option value="Weekly">Weekly</option>
                     <option value="Bi Weekly">Bi Weekly</option>
-                    <option value="Montly">Montly</option>
+                    <option value="Monthly">Monthly</option>
                     <option value="Yearly">Yearly</option>
                   </select>
                 </div>

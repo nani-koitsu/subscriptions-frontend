@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: flex-start;
   position: absolute;
-
 }
 
 .input-field {
@@ -16,7 +15,7 @@
   font-size: 1.2rem;
   outline: none;
   border: 1px grey solid;
-  box-shadow: 0 .5rem 1rem grey;
+  box-shadow: 0 0.5rem 1rem grey;
   border-radius: 3px;
 }
 

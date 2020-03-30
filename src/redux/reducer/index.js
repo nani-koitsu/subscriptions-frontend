@@ -4,5 +4,5 @@ import subscriptionReducer from "./subscriptionReducer";
 
 export default combineReducers({
   authUser: authUserReducer,
-  subscription: subscriptionReducer
+  userSubscriptions: subscriptionReducer
 });

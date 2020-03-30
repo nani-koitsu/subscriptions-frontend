@@ -12,7 +12,7 @@ export const addUserSubscription = subInfo => async dispatch => {
       payload: success.data
     });
     console.log(success);
-    Promise.resolve(success);
+    Promise.resolve(success.data);
   } catch (error) {
     console.log((`here it is:`, error));
     return Promise.reject(error);
@@ -22,7 +22,7 @@ export const addUserSubscription = subInfo => async dispatch => {
 export const getAllUserSubscriptions = id => async dispatch => {
   try {
     let foundAllUserSubs = await Axios.get(
-      `/subscriptions/get-all-user-subscriptions/${id}`
+      `/subscription/get-all-user-subscriptions/${id}`
     );
     dispatch({
       type: GET_ALL_USER_SUBSCRIPTIONS,
