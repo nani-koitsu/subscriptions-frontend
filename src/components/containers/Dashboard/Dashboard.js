@@ -3,8 +3,9 @@ import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import SearchBar from "../../Searchbar/SearchBar";
 import "./Dashboard.css";
-// import SubscriptionBox from "../../SubscriptionBox/SubscriptionBox";
+
 import { getAllUserSubscriptions } from "../../../redux/action/subscriptionAction";
+import TrackedSubscriptions from "../../Subscriptions/TrackedSubscriptions";
 
 class Dashboard extends Component {
   state = {
@@ -25,11 +26,13 @@ class Dashboard extends Component {
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (
-          <>{console.log("after auth", this.props.userSubscriptions)}</>
+          <>
+            <SearchBar />
+            <TrackedSubscriptions />
+          </>
         ) : (
           <Redirect to="/signin" />
         )}
-        <SearchBar />
       </div>
     );
   }
