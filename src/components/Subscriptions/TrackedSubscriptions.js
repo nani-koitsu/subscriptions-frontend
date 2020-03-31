@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import UserSubscription from "./UserSubscriptions/UserSubscription";
 import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";

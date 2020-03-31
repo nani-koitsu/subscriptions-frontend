@@ -4,7 +4,8 @@ import {
 } from "../actionTypes/actionTypes";
 
 const initialState = {
-  userSubscriptions: []
+  userSubscriptions: [],
+  selectedSubscription: []
 };
 
 export default function(state = initialState, action) {

@@ -3,12 +3,14 @@ import Spotify from "../../../assets/img/Spotify.png";
 import "./Subscriptions.css";
 import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
+import { Image } from "cloudinary-react";
 
 const UserSubscription = props => {
   return (
     <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
+          <Image cloudName="dg1xmeryg" publicId="netflix_logo" />
           <img src={Spotify} className="sub-image" alt=""></img>
         </div>
         <p className="sub-name">{props.subscriptionName}</p>
