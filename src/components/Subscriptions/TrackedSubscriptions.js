@@ -1,18 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
 import UserSubscription from "./UserSubscriptions/UserSubscription";
+import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
+
 class TrackedSubscriptions extends React.Component {
   render() {
     const { userSubscriptions } = this.props.userSubscriptions;
     let allUserSubscriptions = (
       <>
         {userSubscriptions.map(userSub => {
-          return (
-            <>
-              {" "}
-              <UserSubscription {...userSub} />
-            </>
-          );
+          return <UserSubscription key={userSub._id} {...userSub} />;
         })}
       </>
     );
@@ -26,14 +23,8 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(TrackedSubscriptions);
+export default connect(mapStateToProps, { getAllUserSubscriptions })(
+  TrackedSubscriptions
+);
 
-//  {
-//         userSubscriptions.map( subscription => (
-//           return(
-//             <>
-//             <UserSubscription {...userSubscriptions}/>
-//           </>
-//           )
-//         ))
-//       }
+// container

@@ -16,19 +16,22 @@ class Dashboard extends Component {
     if (!this.props.authUser.isAuthenticated) {
       this.props.history.push("/signin");
     }
+
     this.props.getAllUserSubscriptions(this.props.authUser.user.id);
-    // this.props.getAllUserSubscriptions();
+    //
+
     console.log(`Dashboard componentDidMount : `, this.props.authUser.user.id);
   }
   openSelectedSubscription = () => {};
   render() {
-    // console.log(this.props.userSubscriptions);
+    let trackedSubscriptions = <TrackedSubscriptions />;
+    console.log(this.props.userSubscriptions);
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (
           <>
             <SearchBar />
-            <TrackedSubscriptions />
+            {trackedSubscriptions}
           </>
         ) : (
           <Redirect to="/signin" />
