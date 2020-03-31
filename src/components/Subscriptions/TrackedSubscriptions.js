@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import UserSubscription from "./UserSubscriptions/UserSubscription";
 import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
@@ -19,7 +19,8 @@ class TrackedSubscriptions extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    userSubscriptions: state.userSubscriptions
+    userSubscriptions: state.userSubscriptions,
+    authUser: state.authUser
   };
 };
 

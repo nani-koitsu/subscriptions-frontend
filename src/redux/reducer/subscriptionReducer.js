@@ -4,17 +4,17 @@ import {
 } from "../actionTypes/actionTypes";
 
 const initialState = {
-  subscriptions: [],
   userSubscriptions: []
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
     case ADD_USER_SUBSCRIPTION:
-      let newSubscriptionsArr = [...state.subscriptions, action.payload];
+      console.log(action.payload);
+      let newSubscriptionsArr = [...state.userSubscriptions, action.payload];
       return {
         ...state,
-        subscriptions: newSubscriptionsArr
+        userSubscriptions: newSubscriptionsArr
       };
     case GET_ALL_USER_SUBSCRIPTIONS:
       return {
