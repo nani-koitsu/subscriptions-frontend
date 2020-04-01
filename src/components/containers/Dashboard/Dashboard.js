@@ -9,8 +9,8 @@ import TrackedSubscriptions from "../../Subscriptions/TrackedSubscriptions";
 
 class Dashboard extends Component {
   state = {
-    email: "",
-    subscriptions: []
+    email: ""
+    // subscriptions: []
   };
   componentDidMount() {
     if (!this.props.authUser.isAuthenticated) {
