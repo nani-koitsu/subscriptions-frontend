@@ -18,14 +18,14 @@ class Dashboard extends Component {
     }
 
     this.props.getAllUserSubscriptions(this.props.authUser.user.id);
-    //
+    
 
-    console.log(`Dashboard componentDidMount : `, this.props.authUser.user.id);
+    // console.log(`Dashboard componentDidMount : `, this.props.authUser.user.id);
   }
   openSelectedSubscription = () => {};
   render() {
     let trackedSubscriptions = <TrackedSubscriptions />;
-    console.log(this.props.userSubscriptions);
+    // console.log(this.props.userSubscriptions);
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (

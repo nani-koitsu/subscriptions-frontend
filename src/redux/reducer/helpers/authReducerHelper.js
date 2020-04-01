@@ -8,9 +8,9 @@ const stateHelperFunc = (oldState, newState) => {
 };
 
 export const jwtDecodeTokenAndSetUser = (oldState, token) => {
-  console.log(`Token : ${token}`);
+  // console.log(`Token : ${token}`);
   let decodedToken = jwtDecode(token);
-  console.log("DecodedToken from authReducerHelper :", decodedToken);
+  // console.log("DecodedToken from authReducerHelper :", decodedToken);
   let user = {};
 
   if (decodedToken.linkedinID) {

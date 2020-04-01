@@ -7,7 +7,6 @@ import { Image } from "cloudinary-react";
 
 const UserSubscription = props => {
   return (
-    <div className="subscription-container">
       <div className="subscription-row">
         <div className="image-container">
           <Image cloudName="dg1xmeryg" publicId="netflix_logo" />
@@ -28,7 +27,6 @@ const UserSubscription = props => {
           <img src={actionIcon} alt="action-button" className="button-icon" />
         </button>
       </div>
-    </div>
   );
 };
 
