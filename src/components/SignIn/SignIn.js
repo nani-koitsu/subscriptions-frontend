@@ -58,6 +58,7 @@ class Signin extends Component {
             email: "",
             password: ""
           });
+
           this.props.history.push("/dashboard");
         })
         .catch(e => {

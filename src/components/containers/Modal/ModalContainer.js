@@ -109,7 +109,7 @@ class ModalContainer extends React.Component {
               <h1>{this.props.name}</h1>
               <img
                 className="search-image"
-                src={require(`../../../assets/img/${this.props.name}.png`)}
+                src={this.props.picture}
                 alt={this.props.name}
               ></img>
               <form onSubmit={this.onSubmit}>
@@ -161,7 +161,8 @@ class ModalContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     authUser: state.authUser,
-    userSubscriptions: state.userSubscriptions
+    userSubscriptions: state.userSubscriptions,
+    cloudinaryImages: state.cloudinaryImages
   };
 };
 

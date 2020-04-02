@@ -23,7 +23,10 @@ class SearchBar extends React.Component {
     let searchSuggestions = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, "i");
-      searchSuggestions = this.props.authUser.subscriptionsList
+      let searchableKeys = Object.keys(
+        this.props.cloudinaryImages.cloudinaryList
+      );
+      searchSuggestions = searchableKeys
         .sort()
         .filter(item => regex.test(item));
     }
@@ -32,15 +35,10 @@ class SearchBar extends React.Component {
 
   handleOnClick = info => {
     this.openModalHandler(info);
-    // const value = e.target.alt;
-    // console.log(value);
-    // this.setState({
-    //   isSelected: true,
-    //   selected: value
-    // });
   };
 
   renderSearch = () => {
+    const { cloudinaryList } = this.props.cloudinaryImages;
     const { searchSuggestions } = this.state;
     if (searchSuggestions.length === 0) {
       return null;
@@ -54,13 +52,13 @@ class SearchBar extends React.Component {
             onClick={() =>
               this.handleOnClick({
                 name: item,
-                picture: `https://res.cloudinary.com/dg1xmeryg/image/upload/logos/${item}.png`
+                picture: cloudinaryList[`${item}`]
               })
             }
           >
             <img
               className="search-image"
-              src={`https://res.cloudinary.com/dg1xmeryg/image/upload/logos/${item}.png`}
+              src={cloudinaryList[`${item}`]}
               alt={item}
             ></img>
             <p className="search-button">{item}</p>
@@ -87,6 +85,11 @@ class SearchBar extends React.Component {
   };
 
   render() {
+    // console.log(
+    //   "searched with array",
+    //   this.props.cloudinaryImages.cloudinaryList["adobe"]
+    // );
+    // console.log(Object.keys(this.props.cloudinaryImages.cloudinaryList));
     return (
       <div className="search-container">
         <input
@@ -110,7 +113,8 @@ class SearchBar extends React.Component {
 }
 const mapStateToProps = state => {
   return {
-    authUser: state.authUser
+    authUser: state.authUser,
+    cloudinaryImages: state.cloudinaryImages
   };
 };
 export default connect(mapStateToProps, {})(SearchBar);

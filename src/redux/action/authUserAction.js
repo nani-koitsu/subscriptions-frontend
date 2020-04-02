@@ -18,6 +18,7 @@ export const signup = userInfo => async dispatch => {
 export const signin = userInfo => async dispatch => {
   try {
     let success = await Axios.post("/users/signin", userInfo);
+
     let { token } = success.data;
 
     dispatch(setAuthSuccessUser(token));
