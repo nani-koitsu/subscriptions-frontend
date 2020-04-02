@@ -77,7 +77,7 @@ class ModalContainer extends React.Component {
           subscriptionType: "",
           subscriptionName: ""
         });
-        this.closeModal().then(() => this.props.history.push("/dashboard"));
+        this.closeModal();
       })
       .catch(e => {
         console.log(e);
@@ -145,7 +145,7 @@ class ModalContainer extends React.Component {
                     <option value="Yearly">Yearly</option>
                   </select>
                 </div>
-                <button type='submit'>Submit</button>{" "}
+                <button type="submit">Submit</button>{" "}
                 <button onClick={this.closeModal}>Cancel</button>
               </form>
             </>

@@ -25,7 +25,6 @@ class Dashboard extends Component {
   openSelectedSubscription = () => {};
   render() {
     let trackedSubscriptions = <TrackedSubscriptions />;
-    console.log(this.props.userSubscriptions);
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (
