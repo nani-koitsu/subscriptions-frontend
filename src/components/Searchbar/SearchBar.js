@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./SearchBar.css";
-import ModalContainer from "../containers/Modal/ModalContainer";
+import SearchModal from "../containers/Modal/SearchModal";
 class SearchBar extends React.Component {
   state = {
     searchSuggestions: [],
@@ -74,6 +74,7 @@ class SearchBar extends React.Component {
       name: info.name,
       picture: info.picture
     });
+    console.log(this.state)
   };
 
   closeModalHandler = () => {
@@ -100,7 +101,7 @@ class SearchBar extends React.Component {
         />
 
         {this.renderSearch()}
-        <ModalContainer
+        <SearchModal
           openModalHandler={this.openModalHandler}
           isOpen={this.state.isOpen}
           closeModalHandler={this.closeModalHandler}

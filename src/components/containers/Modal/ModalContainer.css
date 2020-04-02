@@ -1,9 +1,9 @@
-.modal-container {
+.modal-container__search {
   position: absolute;
   top: 50%;
   left: 50%;
   width: 45rem;
-  height: 10rem;
+  height: 15rem;
   border: 1px black solid;
   background-color: #f1f3f4;
   padding: 1rem;
@@ -20,6 +20,7 @@
 .modal-image {
   /* margin-left: -4rem; */
   margin-right: auto;
+  height: 5rem;
 }
 
 .search-name {

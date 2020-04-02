@@ -7,21 +7,9 @@ import "./ModalContainer.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const customStyles = {
-  content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    width: "500px",
-
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
-};
-
 Modal.setAppElement("#root");
-class ModalContainer extends React.Component {
+
+class SearchModal extends React.Component {
   state = {
     startDate: new Date(),
     price: 0,
@@ -100,7 +88,7 @@ class ModalContainer extends React.Component {
           onClick={this.openModal}
           isOpen={this.props.isOpen}
           onRequestClose={this.closeModal}
-          style={customStyles}
+          className='modal-container__search'
           contentLabel="Example Modal"
         >
           {this.props.isOpen ? (
@@ -108,11 +96,16 @@ class ModalContainer extends React.Component {
               {" "}
               <h1>{this.props.name}</h1>
               <img
+<<<<<<< HEAD:src/components/containers/Modal/ModalContainer.js
                 className="search-image"
                 src={this.props.picture}
+=======
+                className="modal-image"
+                src={require(`../../../assets/img/${this.props.name}.png`)}
+>>>>>>> 6f7ace8110c025751737ebea033db105f94410fa:src/components/containers/Modal/SearchModal.js
                 alt={this.props.name}
               ></img>
-              <form onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit} className="form-info">
                 <label htmlFor="">Due Date</label>
                 <DatePicker
                   selected={this.state.startDate}
@@ -167,5 +160,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, { addUserSubscription })(
-  ModalContainer
+  SearchModal
 );
