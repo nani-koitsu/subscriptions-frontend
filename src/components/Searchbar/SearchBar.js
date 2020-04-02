@@ -54,13 +54,13 @@ class SearchBar extends React.Component {
             onClick={() =>
               this.handleOnClick({
                 name: item,
-                picture: `../../assets/img/${item}.png`
+                picture: `https://res.cloudinary.com/dg1xmeryg/image/upload/logos/${item}.png`
               })
             }
           >
             <img
               className="search-image"
-              src={require(`../../assets/img/${item}.png`)}
+              src={`https://res.cloudinary.com/dg1xmeryg/image/upload/logos/${item}.png`}
               alt={item}
             ></img>
             <p className="search-button">{item}</p>

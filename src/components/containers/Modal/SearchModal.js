@@ -133,7 +133,7 @@ class SearchModal extends React.Component {
                     <option value="Yearly">Yearly</option>
                   </select>
                 </div>
-                <button type='submit'>Submit</button>{" "}
+                <button type="submit">Submit</button>{" "}
                 <button onClick={this.closeModal}>Cancel</button>
               </form>
             </>
