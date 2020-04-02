@@ -74,7 +74,7 @@ class SearchBar extends React.Component {
       name: info.name,
       picture: info.picture
     });
-    console.log(this.state)
+    console.log(this.state);
   };
 
   closeModalHandler = () => {
