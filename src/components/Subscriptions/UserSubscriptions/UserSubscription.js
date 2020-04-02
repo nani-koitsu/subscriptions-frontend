@@ -1,79 +1,45 @@
 import React, { Component } from "react";
-import Spotify from "../../../assets/img/Spotify.png";
 import "./Subscriptions.css";
 // import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
-// import { Image } from "cloudinary-react";
-
-<<<<<<< HEAD
-const UserSubscription = props => {
-  return (
-    <div className="subscription-row">
-      <div className="image-container">
-        {/* <Image cloudName="dg1xmeryg" publicId="dinnerly" /> */}
-        <img src={props.name} className="sub-image" alt=""></img>
-      </div>
-      <p className="sub-name">{props.subscriptionName}</p>
-      <div className="spacer"></div>
-      <div className="subscription-row-items">
-        <ul>
-          <li>{props.price}</li>
-          <li>{props.subscriptionType}</li>
-        </ul>
-      </div>
-      <button className="sub-button">
-        <img src={editIcon} alt="edit-button" className="button-icon" />
-      </button>
-      <button className="sub-button">
-        <img src={actionIcon} alt="action-button" className="button-icon" />
-      </button>
-    </div>
-  );
-=======
-import EditModal from '../../containers/Modal/EditModal';
+import EditModal from "../../containers/Modal/EditModal";
 
 class UserSubscription extends Component {
-
   state = {
     isOpen: false,
     name: "",
-    subscriptionName: '',
-    subscriptionType: '',
-    price: '',
-    startDate: '',
-    id: ''
-  }
+    subscriptionName: "",
+    subscriptionType: "",
+    price: "",
+    startDate: "",
+    id: ""
+  };
 
   handleOnClick = () => {
-    this.openModalHandler(this.props)
-  }
+    this.openModalHandler(this.props);
+  };
 
   openModalHandler = info => {
     this.setState({
       isOpen: !this.state.isOpen,
-      name: info.subscriptionName,
-    })
-
-  }
+      name: info.subscriptionName
+    });
+  };
 
   closeModalHandler = () => {
     this.setState({
       isOpen: !this.state.isOpen,
-      name: '',
-      picture: ''
+      name: "",
+      picture: ""
     });
   };
 
-  render () {
+  render() {
     return (
       <div className="subscription-row">
         <div className="image-container">
           {/* <Image cloudName="dg1xmeryg" publicId="dinnerly" /> */}
-          <img
-            src={`https://res.cloudinary.com/dg1xmeryg/image/upload/logos/#${props.name}.png`}
-            className="sub-image"
-            alt=""
-          ></img>
+          <img src={this.props.item} className="sub-image" alt=""></img>
         </div>
         <p className="sub-name">{this.props.subscriptionName}</p>
         <div className="spacer"></div>
@@ -96,10 +62,8 @@ class UserSubscription extends Component {
           info={this.props}
         />
       </div>
-      );
-
+    );
   }
->>>>>>> 6f7ace8110c025751737ebea033db105f94410fa
-};
+}
 
 export default UserSubscription;
