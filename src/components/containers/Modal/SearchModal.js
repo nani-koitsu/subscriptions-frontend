@@ -15,6 +15,7 @@ class SearchModal extends React.Component {
     price: 0,
     subscriptionType: "",
     subscriptionName: "",
+    picture: "",
   };
 
   openModal = () => {
@@ -37,14 +38,16 @@ class SearchModal extends React.Component {
   };
 
   onSubmit = async (e) => {
+    console.log(`before submit`, this.state);
     e.preventDefault();
-    console.log("MODALCONTAINER ON SUBMIT :", this.props.authUser.user.id);
+    console.log(`after submit`, this.state);
+    // console.log("MODALCONTAINER ON SUBMIT :", this.props.authUser.user.id);
     const {
       startDate,
       price,
       subscriptionType,
       subscriptionName,
-      image,
+      picture,
     } = this.state;
 
     const submitObj = {
@@ -52,7 +55,7 @@ class SearchModal extends React.Component {
       price,
       subscriptionType,
       subscriptionName,
-      image,
+      picture,
       submittedBy: this.props.authUser.user.id,
     };
 
@@ -64,21 +67,23 @@ class SearchModal extends React.Component {
           price: 0,
           subscriptionType: "",
           subscriptionName: "",
-          image: "",
+          picture: "",
         });
         this.closeModal();
       })
+
       .catch((e) => {
         console.log(e);
       });
-    // console.log(this.state);
   };
 
   componentDidUpdate(prevProp, prevState) {
     if (prevProp.name !== this.props.name) {
       this.setState({
         subscriptionName: this.props.name,
+        picture: this.props.picture,
       });
+      console.log("picture ===", this.props.picture);
     }
   }
 

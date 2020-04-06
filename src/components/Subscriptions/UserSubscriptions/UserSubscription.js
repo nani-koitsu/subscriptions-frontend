@@ -12,6 +12,7 @@ class UserSubscription extends Component {
     subscriptionType: "",
     price: "",
     startDate: "",
+    picture: "",
     id: "",
   };
 
@@ -38,7 +39,11 @@ class UserSubscription extends Component {
     return (
       <div className="subscription-row">
         <div className="image-container">
-          <img src={this.props.picture} className="sub-image" alt=""></img>
+          <img
+            src={this.props.picture}
+            className="sub-image"
+            alt={this.props.name}
+          ></img>
         </div>
         <p className="sub-name">{this.props.subscriptionName}</p>
         <div className="spacer"></div>
