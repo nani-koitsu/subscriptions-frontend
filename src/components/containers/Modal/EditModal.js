@@ -8,9 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 class EditModal extends Component {
     constructor(props) {
         super(props)
-        // let date = parse(props.info.startDate)
-
-        // console.log(date)
+    
         this.state = {
             startDate: new Date(),
             price: props.info.price,
@@ -40,8 +38,18 @@ class EditModal extends Component {
         });
     };
 
+    deleteSub = () => {
+        let subID = this.props.info._id
+        console.log(subID)
+    }
+
+    onSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state)
+
+    }
+
     render() {
-        console.log(this.props)
         return (
             <div className="edit-modal">
                 <Modal
@@ -96,7 +104,7 @@ class EditModal extends Component {
                                 <button type='submit'>Submit</button>{" "}
                                 <button onClick={this.closeModal}>Cancel</button>
                             </form>
-                            <button>Delete Subscription</button>
+                            <button onClick={this.deleteSub}>Delete Subscription</button>
                         </>
                     ) : ''}
                 </Modal>
