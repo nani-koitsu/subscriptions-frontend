@@ -102,7 +102,7 @@ class SearchModal extends React.Component {
               {" "}
               <h1>{this.props.name}</h1>
               <img
-                className="search-image"
+                className="modal-image"
                 src={this.props.picture}
                 alt={this.props.name}
               ></img>
