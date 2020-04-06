@@ -1,6 +1,8 @@
 import {
   ADD_USER_SUBSCRIPTION,
   GET_ALL_USER_SUBSCRIPTIONS
+  // DELETE_USER_SUBSCRIPTION,
+  // EDIT_USER_SUBSCRIPTION
 } from "../actionTypes/actionTypes";
 import Axios from "../../lib/Axios/Axios";
 
@@ -36,3 +38,7 @@ export const getAllUserSubscriptions = id => async dispatch => {
     console.log(error);
   }
 };
+
+export const deleteSubscriptionById = id => {
+  
+}
