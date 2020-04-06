@@ -9,16 +9,17 @@ class SearchBar extends React.Component {
     selected: "",
     isOpen: false,
     name: "",
-    picture: ""
+    picture: "",
   };
 
   componentDidMount() {
     if (!this.props.authUser.isAuthenticated) {
       this.props.history.push("/signin");
+      console.log(`Line 18 SEARCHBAR`, this.props);
     }
   }
 
-  handleTextOnChange = e => {
+  handleTextOnChange = (e) => {
     const value = e.target.value;
     let searchSuggestions = [];
     if (value.length > 0) {
@@ -28,12 +29,12 @@ class SearchBar extends React.Component {
       );
       searchSuggestions = searchableKeys
         .sort()
-        .filter(item => regex.test(item));
+        .filter((item) => regex.test(item));
     }
     this.setState({ searchSuggestions, text: value });
   };
 
-  handleOnClick = info => {
+  handleOnClick = (info) => {
     this.openModalHandler(info);
   };
 
@@ -52,7 +53,7 @@ class SearchBar extends React.Component {
             onClick={() =>
               this.handleOnClick({
                 name: item,
-                picture: cloudinaryList[`${item}`]
+                picture: cloudinaryList[`${item}`],
               })
             }
           >
@@ -68,11 +69,11 @@ class SearchBar extends React.Component {
     );
   };
 
-  openModalHandler = info => {
+  openModalHandler = (info) => {
     this.setState({
       isOpen: !this.state.isOpen,
       name: info.name,
-      picture: info.picture
+      picture: info.picture,
     });
     console.log(this.state);
   };
@@ -81,16 +82,11 @@ class SearchBar extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen,
       name: "",
-      picture: ""
+      picture: "",
     });
   };
 
   render() {
-    // console.log(
-    //   "searched with array",
-    //   this.props.cloudinaryImages.cloudinaryList["adobe"]
-    // );
-    // console.log(Object.keys(this.props.cloudinaryImages.cloudinaryList));
     return (
       <div className="search-container">
         <input
@@ -112,10 +108,10 @@ class SearchBar extends React.Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authUser: state.authUser,
-    cloudinaryImages: state.cloudinaryImages
+    cloudinaryImages: state.cloudinaryImages,
   };
 };
 export default connect(mapStateToProps, {})(SearchBar);

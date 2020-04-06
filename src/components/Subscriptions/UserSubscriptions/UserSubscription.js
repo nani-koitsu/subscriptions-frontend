@@ -12,17 +12,17 @@ class UserSubscription extends Component {
     subscriptionType: "",
     price: "",
     startDate: "",
-    id: ""
+    id: "",
   };
 
   handleOnClick = () => {
     this.openModalHandler(this.props);
   };
 
-  openModalHandler = info => {
+  openModalHandler = (info) => {
     this.setState({
       isOpen: !this.state.isOpen,
-      name: info.subscriptionName
+      name: info.subscriptionName,
     });
   };
 
@@ -30,7 +30,7 @@ class UserSubscription extends Component {
     this.setState({
       isOpen: !this.state.isOpen,
       name: "",
-      picture: ""
+      picture: "",
     });
   };
 
@@ -38,8 +38,7 @@ class UserSubscription extends Component {
     return (
       <div className="subscription-row">
         <div className="image-container">
-          {/* <Image cloudName="dg1xmeryg" publicId="dinnerly" /> */}
-          <img src={this.props.item} className="sub-image" alt=""></img>
+          <img src={this.props.picture} className="sub-image" alt=""></img>
         </div>
         <p className="sub-name">{this.props.subscriptionName}</p>
         <div className="spacer"></div>

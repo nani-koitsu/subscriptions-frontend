@@ -5,5 +5,5 @@ import cloudinaryReducer from "./cloudinaryReducer";
 export default combineReducers({
   authUser: authUserReducer,
   userSubscriptions: subscriptionReducer,
-  cloudinaryImages: cloudinaryReducer
+  cloudinaryImages: cloudinaryReducer,
 });

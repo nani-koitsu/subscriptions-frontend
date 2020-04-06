@@ -12,12 +12,12 @@ const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
+  Object.values(formErrors).forEach((val) => {
     val.length > 0 && (valid = false);
   });
 
   // validate the form was filled out
-  Object.values(rest).forEach(val => {
+  Object.values(rest).forEach((val) => {
     val === null && (valid = false);
   });
 
@@ -30,8 +30,8 @@ class Signup extends Component {
     password: "",
     formErrors: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   };
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class Signup extends Component {
     }
   }
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     if (formValid(this.state)) {
       console.log(`
@@ -50,7 +50,7 @@ class Signup extends Component {
       `);
       const user = {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
       };
       this.props
         .signup(user)
@@ -60,12 +60,12 @@ class Signup extends Component {
             password: "",
             formErrors: {
               email: "",
-              password: ""
-            }
+              password: "",
+            },
           });
           this.props.history.push("/signin");
         })
-        .catch(e => {
+        .catch((e) => {
           console.log(e);
           // const { message } = e.response.data;
           // this.setState({ error: message });
@@ -75,7 +75,7 @@ class Signup extends Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
@@ -146,9 +146,9 @@ class Signup extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    authUser: state.authUser
+    authUser: state.authUser,
   };
 };
 export default connect(mapStateToProps, { signup })(Signup);

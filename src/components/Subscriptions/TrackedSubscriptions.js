@@ -5,10 +5,11 @@ import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
 
 class TrackedSubscriptions extends React.Component {
   render() {
+    console.log(this.props);
     const { userSubscriptions } = this.props.userSubscriptions;
     let allUserSubscriptions = (
       <div className="subscription-container">
-        {userSubscriptions.map(userSub => {
+        {userSubscriptions.map((userSub) => {
           return <UserSubscription key={userSub._id} {...userSub} />;
         })}
       </div>
@@ -17,11 +18,11 @@ class TrackedSubscriptions extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     userSubscriptions: state.userSubscriptions,
     authUser: state.authUser,
-    cloudinaryImages: state.cloudinaryImages
+    cloudinaryImages: state.cloudinaryImages,
   };
 };
 

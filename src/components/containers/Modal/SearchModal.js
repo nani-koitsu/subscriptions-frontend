@@ -14,7 +14,7 @@ class SearchModal extends React.Component {
     startDate: new Date(),
     price: 0,
     subscriptionType: "",
-    subscriptionName: ""
+    subscriptionName: "",
   };
 
   openModal = () => {
@@ -24,19 +24,19 @@ class SearchModal extends React.Component {
     this.props.closeModalHandler();
   };
 
-  handleDateChange = date => {
+  handleDateChange = (date) => {
     this.setState({
-      startDate: date
+      startDate: date,
     });
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
 
-  onSubmit = async e => {
+  onSubmit = async (e) => {
     e.preventDefault();
     console.log("MODALCONTAINER ON SUBMIT :", this.props.authUser.user.id);
     const {
@@ -44,7 +44,7 @@ class SearchModal extends React.Component {
       price,
       subscriptionType,
       subscriptionName,
-      image
+      image,
     } = this.state;
 
     const submitObj = {
@@ -53,7 +53,7 @@ class SearchModal extends React.Component {
       subscriptionType,
       subscriptionName,
       image,
-      submittedBy: this.props.authUser.user.id
+      submittedBy: this.props.authUser.user.id,
     };
 
     this.props
@@ -63,11 +63,12 @@ class SearchModal extends React.Component {
           startDate: "",
           price: 0,
           subscriptionType: "",
-          subscriptionName: ""
+          subscriptionName: "",
+          image: "",
         });
         this.closeModal();
       })
-      .catch(e => {
+      .catch((e) => {
         console.log(e);
       });
     // console.log(this.state);
@@ -76,7 +77,7 @@ class SearchModal extends React.Component {
   componentDidUpdate(prevProp, prevState) {
     if (prevProp.name !== this.props.name) {
       this.setState({
-        subscriptionName: this.props.name
+        subscriptionName: this.props.name,
       });
     }
   }
@@ -146,11 +147,11 @@ class SearchModal extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     authUser: state.authUser,
     userSubscriptions: state.userSubscriptions,
-    cloudinaryImages: state.cloudinaryImages
+    cloudinaryImages: state.cloudinaryImages,
   };
 };
 

@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 class EditModal extends Component {
     constructor(props) {
-        super(props)
-    
+        super(props);
+
         this.state = {
             startDate: new Date(),
             price: props.info.price,
             subscriptionType: props.info.subscriptionType,
             subscriptionName: props.info.subscriptionName,
-            image: ''
-        }
+            image: "",
+        };
     }
 
     openModal = () => {
@@ -64,7 +63,7 @@ class EditModal extends Component {
                             <h1>{this.state.subscriptionName}</h1>
                             <img
                                 className="modal-image"
-                                src={require(`../../../assets/img/${this.state.subscriptionName}.png`)}
+                                // src={require(`../../../assets/img/${this.state.subscriptionName}.png`)}
                                 alt={this.props.name}
                             ></img>
                             <form onSubmit={this.onSubmit} className="form-info">
@@ -113,10 +112,10 @@ class EditModal extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        authUser: state.authUser
+        authUser: state.authUser,
     };
 };
 
-export default connect(mapStateToProps, null)(EditModal)
+export default connect(mapStateToProps, null)(EditModal);

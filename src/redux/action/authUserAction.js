@@ -1,34 +1,35 @@
 import {
   AUTH_USER_SIGN_IN_SUCCESSFUL,
-  AUTH_USER_LOGOUT
+  AUTH_USER_LOGOUT,
 } from "../actionTypes/actionTypes";
-
+import { getAllCloudinaryImages } from "./cloudinaryAction";
 import setAuthToken from "../../lib/Axios/setAuthToken";
 import Axios from "../../lib/Axios/Axios";
 
-export const signup = userInfo => async dispatch => {
+export const signup = (userInfo) => async (dispatch) => {
   try {
     let success = await Axios.post("/users/signup", userInfo);
+
     return Promise.resolve(success.data.message);
   } catch (e) {
     return Promise.reject(e);
   }
 };
 
-export const signin = userInfo => async dispatch => {
+export const signin = (userInfo) => async (dispatch) => {
   try {
     let success = await Axios.post("/users/signin", userInfo);
 
     let { token } = success.data;
-
     dispatch(setAuthSuccessUser(token));
+    dispatch(getAllCloudinaryImages());
     return Promise.resolve();
   } catch (e) {
     return Promise.reject(e);
   }
 };
 
-export const userFillInInfo = userInfo => async dispatch => {
+export const userFillInInfo = (userInfo) => async (dispatch) => {
   try {
     await Axios.post("/api/users/update-user-info", userInfo);
     await Axios.post("/api/users/submit-survey", userInfo);
@@ -38,32 +39,19 @@ export const userFillInInfo = userInfo => async dispatch => {
   }
 };
 
-export const setAuthSuccessUser = token => dispatch => {
+export const setAuthSuccessUser = (token) => (dispatch) => {
   localStorage.setItem("jwtToken", token);
   dispatch({
     type: AUTH_USER_SIGN_IN_SUCCESSFUL,
-    payload: token
+    payload: token,
   });
 };
 
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   localStorage.removeItem("jwtToken");
   setAuthToken(false);
   window.location.href = "/";
   dispatch({
-    type: AUTH_USER_LOGOUT
+    type: AUTH_USER_LOGOUT,
   });
 };
-
-/*
-
-[
-  {
-    subscriptName:
-    aksdkljasdj
-    asdkasdjk
-  }
-]
-
-
-*/
