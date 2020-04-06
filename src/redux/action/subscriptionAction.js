@@ -1,7 +1,7 @@
 import {
   ADD_USER_SUBSCRIPTION,
-  GET_ALL_USER_SUBSCRIPTIONS
-  // DELETE_USER_SUBSCRIPTION,
+  GET_ALL_USER_SUBSCRIPTIONS,
+  DELETE_USER_SUBSCRIPTION
   // EDIT_USER_SUBSCRIPTION
 } from "../actionTypes/actionTypes";
 import Axios from "../../lib/Axios/Axios";
@@ -39,6 +39,23 @@ export const getAllUserSubscriptions = (id) => async (dispatch) => {
   }
 };
 
-export const deleteSubscriptionById = id => {
+export const deleteSubscriptionById = (id) => async (dispatch) => {
+  try {
+    
+    let deletedSubId = await Axios.delete(`/subscription/delete-by-id/${id}`);
+    
+    console.log(deletedSubId, 'line 46 action');
+
+    dispatch({
+      type: DELETE_USER_SUBSCRIPTION,
+      payload: deletedSubId,
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const editSubscriptionById = info => {
 
 }

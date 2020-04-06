@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
+import { deleteSubscriptionById } from '../../../redux/action/subscriptionAction';
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 class EditModal extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            startDate: new Date(),
-            price: props.info.price,
-            subscriptionType: props.info.subscriptionType,
-            subscriptionName: props.info.subscriptionName,
-            image: props.info.picture,
-        };
-    }
+    state = {
+        startDate: new Date(),
+        price: this.props.info.price,
+        subscriptionType: this.props.info.subscriptionType,
+        subscriptionName: this.props.info.subscriptionName,
+        image: this.props.info.picture,
+    };
+
 
     openModal = () => {
         this.props.openModalHandler();
@@ -39,7 +39,9 @@ class EditModal extends Component {
 
     deleteSub = () => {
         let subID = this.props.info._id;
-        console.log(subID);
+
+        this.props.deleteSubscriptionById(subID)
+            
     };
 
     onSubmit = (event) => {
@@ -119,7 +121,8 @@ class EditModal extends Component {
 const mapStateToProps = (state) => {
     return {
         authUser: state.authUser,
+        subscriptions: state.subscriptions
     };
 };
 
-export default connect(mapStateToProps, null)(EditModal);
+export default connect(mapStateToProps, { deleteSubscriptionById })(EditModal);

@@ -5,7 +5,7 @@ import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
 
 class TrackedSubscriptions extends React.Component {
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     const { userSubscriptions } = this.props.userSubscriptions;
     let allUserSubscriptions = (
       <div className="subscription-container">
