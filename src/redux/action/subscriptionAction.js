@@ -1,10 +1,10 @@
 import {
   ADD_USER_SUBSCRIPTION,
-  GET_ALL_USER_SUBSCRIPTIONS
+  GET_ALL_USER_SUBSCRIPTIONS,
 } from "../actionTypes/actionTypes";
 import Axios from "../../lib/Axios/Axios";
 
-export const addUserSubscription = subInfo => async dispatch => {
+export const addUserSubscription = (subInfo) => async (dispatch) => {
   try {
     let success = await Axios.post(
       "/subscription/create-subscription",
@@ -12,9 +12,9 @@ export const addUserSubscription = subInfo => async dispatch => {
     );
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
-      payload: success.data
+      payload: success.data,
     });
-    console.log(success);
+    console.log(`SUBSCRIPTION ACTION LINE 17`, success);
     Promise.resolve(success.data);
   } catch (error) {
     console.log((`here it is:`, error));
@@ -22,14 +22,14 @@ export const addUserSubscription = subInfo => async dispatch => {
   }
 };
 
-export const getAllUserSubscriptions = id => async dispatch => {
+export const getAllUserSubscriptions = (id) => async (dispatch) => {
   try {
     let foundAllUserSubs = await Axios.get(
       `/subscription/get-all-user-subscriptions/${id}`
     );
     dispatch({
       type: GET_ALL_USER_SUBSCRIPTIONS,
-      payload: foundAllUserSubs.data
+      payload: foundAllUserSubs.data,
     });
     Promise.resolve(foundAllUserSubs.data);
   } catch (error) {

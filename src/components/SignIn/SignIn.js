@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signin } from "../../redux/action/authUserAction";
+import { getAllCloudinaryImages } from "../../redux/action/cloudinaryAction";
+
 import GoogleSignin from "../Google/GoogleSignin";
 import "../Forms/Form.css";
+
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
@@ -11,12 +14,12 @@ const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
+  Object.values(formErrors).forEach((val) => {
     val.length > 0 && (valid = false);
   });
 
   // validate the form was filled out
-  Object.values(rest).forEach(val => {
+  Object.values(rest).forEach((val) => {
     val === null && (valid = false);
   });
 
@@ -28,9 +31,9 @@ class Signin extends Component {
     password: "",
     formErrors: {
       email: "",
-      password: ""
+      password: "",
     },
-    error: ""
+    error: "",
   };
 
   componentDidMount() {
@@ -39,29 +42,30 @@ class Signin extends Component {
     }
   }
 
-  handleSubmit = async e => {
+  handleSubmit = async (e) => {
     e.preventDefault();
+    const { email, password } = this.state;
     if (formValid(this.state)) {
       console.log(`
         SUBMITTING
-        Email: ${this.state.email}
-        Password: ${this.state.password}
+        Email: ${email}
+        Password: ${password}
       `);
+      const { signin, history, getAllCloudinaryImages } = this.props;
       const user = {
-        email: this.state.email,
-        password: this.state.password
+        email,
+        password,
       };
-      this.props
-        .signin(user)
+      signin(user)
         .then(() => {
           this.setState({
             email: "",
-            password: ""
+            password: "",
           });
-
-          this.props.history.push("/dashboard");
         })
-        .catch(e => {
+        .then(() => history.push("/dashboard"))
+        .then(() => getAllCloudinaryImages())
+        .catch((e) => {
           // const { message } = e.response.data;
           // this.setState({ error: message });
           // throw new Error(e);
@@ -72,7 +76,7 @@ class Signin extends Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
@@ -143,9 +147,13 @@ class Signin extends Component {
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    authUser: state.authUser
+    authUser: state.authUser,
+    cloudinaryList: state.cloudinaryList,
   };
 };
-export default connect(mapStateToProps, { signin })(Signin);
+export default connect(mapStateToProps, {
+  signin,
+  getAllCloudinaryImages,
+})(Signin);
