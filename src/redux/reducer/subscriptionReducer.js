@@ -1,6 +1,8 @@
 import {
   ADD_USER_SUBSCRIPTION,
   GET_ALL_USER_SUBSCRIPTIONS,
+  DELETE_USER_SUBSCRIPTION,
+  EDIT_USER_SUBSCRIPTION
 } from "../actionTypes/actionTypes";
 
 const initialState = {
@@ -16,11 +18,23 @@ export default function (state = initialState, action) {
         ...state,
         userSubscriptions: newSubscriptionsArr,
       };
+
     case GET_ALL_USER_SUBSCRIPTIONS:
       return {
         ...state,
         userSubscriptions: [...action.payload],
       };
+
+    case DELETE_USER_SUBSCRIPTION:
+      return {
+
+      };
+
+    case EDIT_USER_SUBSCRIPTION:
+      return {
+
+      };
+
     default:
       return state;
   }
