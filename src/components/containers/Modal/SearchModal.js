@@ -88,7 +88,7 @@ class SearchModal extends React.Component {
           onClick={this.openModal}
           isOpen={this.props.isOpen}
           onRequestClose={this.closeModal}
-          className='modal-container__search'
+          className="modal-container__search"
           contentLabel="Example Modal"
         >
           {this.props.isOpen ? (
@@ -96,8 +96,8 @@ class SearchModal extends React.Component {
               {" "}
               <h1>{this.props.name}</h1>
               <img
-                className="modal-image"
-                src={require(`../../../assets/img/${this.props.name}.png`)}
+                className="search-image"
+                src={this.props.picture}
                 alt={this.props.name}
               ></img>
               <form onSubmit={this.onSubmit} className="form-info">
@@ -149,10 +149,9 @@ class SearchModal extends React.Component {
 const mapStateToProps = state => {
   return {
     authUser: state.authUser,
-    userSubscriptions: state.userSubscriptions
+    userSubscriptions: state.userSubscriptions,
+    cloudinaryImages: state.cloudinaryImages
   };
 };
 
-export default connect(mapStateToProps, { addUserSubscription })(
-  SearchModal
-);
+export default connect(mapStateToProps, { addUserSubscription })(SearchModal);
