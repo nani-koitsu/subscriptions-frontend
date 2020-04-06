@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Spotify from "../../../assets/img/Spotify.png";
+// import Spotify from "../../../assets/img/Spotify.png";
 import "./Subscriptions.css";
 // import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
@@ -45,7 +45,7 @@ class UserSubscription extends Component {
         <div className="image-container">
           {/* <Image cloudName="dg1xmeryg" publicId="dinnerly" /> */}
           <img
-            src={`https://res.cloudinary.com/dg1xmeryg/image/upload/logos/#${props.name}.png`}
+            src={`https://res.cloudinary.com/dg1xmeryg/image/upload/logos/#${this.props.name}.png`}
             className="sub-image"
             alt=""
           ></img>

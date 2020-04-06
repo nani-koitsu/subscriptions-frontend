@@ -8,7 +8,9 @@ import "react-datepicker/dist/react-datepicker.css";
 class EditModal extends Component {
     constructor(props) {
         super(props)
+        // let date = parse(props.info.startDate)
 
+        // console.log(date)
         this.state = {
             startDate: new Date(),
             price: props.info.price,
@@ -26,6 +28,12 @@ class EditModal extends Component {
         this.props.closeModalHandler();
     };
 
+    handleDateChange = date => {
+        this.setState({
+            startDate: date
+        });
+    };
+
     handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -40,6 +48,7 @@ class EditModal extends Component {
                     onClick={this.openModal}
                     isOpen={this.props.isOpen}
                     onRequestClose={this.closeModal}
+                    className='modal-container__search'
                 >
                     {this.props.isOpen ? (
                         <>
@@ -87,6 +96,7 @@ class EditModal extends Component {
                                 <button type='submit'>Submit</button>{" "}
                                 <button onClick={this.closeModal}>Cancel</button>
                             </form>
+                            <button>Delete Subscription</button>
                         </>
                     ) : ''}
                 </Modal>
