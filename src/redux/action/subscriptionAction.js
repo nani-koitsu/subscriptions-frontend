@@ -56,6 +56,15 @@ export const deleteSubscriptionById = (id) => async (dispatch) => {
   }
 }
 
-export const editSubscriptionById = info => {
-
+export const editSubscriptionById = (info) => async (dispatch) => {
+  try {
+    let editSub = await Axios.put(`/subscription/edit-user-sub/${info.subID}`, info);
+    console.log(editSub)
+  } catch (error) {
+    console.log(error);
+  }
 }
+
+
+
+
