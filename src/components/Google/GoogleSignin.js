@@ -8,12 +8,15 @@ class GoogleSignin extends Component {
 
   render() {
     return (
-      <button className="custom-button">
+      <a
+        className="custom-button"
+        href='http://localhost:3001/users/authenticate/'
+      >
         <img src={GoogleSvg} alt="google-signin" />
         <span>
           <div className="label">Sign In With Google</div>
         </span>
-      </button>
+      </a>
     );
   }
 }
