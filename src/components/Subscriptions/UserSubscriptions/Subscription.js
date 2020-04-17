@@ -4,7 +4,7 @@ import "./Subscriptions.css";
 import actionIcon from "./svg/unread.svg";
 import EditModal from "../../containers/Modal/EditModal";
 
-class UserSubscription extends Component {
+class Subscription extends Component {
   state = {
     isOpen: false,
     name: "",
@@ -70,4 +70,4 @@ class UserSubscription extends Component {
   }
 }
 
-export default UserSubscription;
+export default Subscription;

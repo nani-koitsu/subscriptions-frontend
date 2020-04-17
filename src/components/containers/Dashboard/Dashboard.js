@@ -19,16 +19,14 @@ class Dashboard extends Component {
     this.props.getAllCloudinaryImages();
     this.props.getAllUserSubscriptions(this.props.authUser.user.id);
   }
-  openSelectedSubscription = () => {};
+  
   render() {
-    let trackedSubscriptions = <TrackedSubscriptions />;
-
     return (
       <div className="dashboard-container">
         {this.props.authUser.isAuthenticated ? (
           <>
             <SearchBar />
-            {trackedSubscriptions}
+            <TrackedSubscriptions />
           </>
         ) : (
           <Redirect to="/signin" />

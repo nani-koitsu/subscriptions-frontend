@@ -26,13 +26,23 @@ export default function (state = initialState, action) {
       };
 
     case DELETE_USER_SUBSCRIPTION:
+      let updatedSubList = state.userSubscriptions.filter(item => item._id !== action.payload._id)
+      console.log(updatedSubList)
       return {
-
+        ...state,
+        userSubscriptions: updatedSubList
       };
 
     case EDIT_USER_SUBSCRIPTION:
+      let editUserSub = state.userSubscriptions.map(item => {
+        if(item._id === action.payload._id) {
+          item = action.payload
+        }
+        return item
+      })
       return {
-
+        ...state,
+        userSubscriptions: editUserSub
       };
 
     default:

@@ -40,8 +40,9 @@ class EditModal extends Component {
 
     deleteSub = () => {
         this.props.deleteSubscriptionById(this.state.subID)
-            .then(success => {
-                console.log(success)
+            .then(() => {
+                console.log("success")
+                this.closeModal();
             })
             
     };

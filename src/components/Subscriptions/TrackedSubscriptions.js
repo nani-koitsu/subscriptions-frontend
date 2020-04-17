@@ -1,20 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
-import UserSubscription from "./UserSubscriptions/UserSubscription";
+import Subscription from "./UserSubscriptions/Subscription";
 import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
 
 class TrackedSubscriptions extends React.Component {
+
   render() {
-    // console.log(this.props);
+    
     const { userSubscriptions } = this.props.userSubscriptions;
-    let allUserSubscriptions = (
-      <div className="subscription-container">
-        {userSubscriptions.map((userSub) => {
-          return <UserSubscription key={userSub._id} {...userSub} />;
-        })}
-      </div>
-    );
-    return <>{allUserSubscriptions}</>;
+    
+    if (userSubscriptions.length > 0) {
+      let allUserSubscriptions = (
+        <div className="subscription-container">
+          {userSubscriptions.map((userSub) => {
+            return <Subscription key={userSub._id} {...userSub} />;
+          })}
+        </div>
+      );
+      return <>{allUserSubscriptions}</>;
+    } else {
+      return (
+        <div>
+          Add Subscriptions
+        </div>
+      )
+
+    }
   }
 }
 
