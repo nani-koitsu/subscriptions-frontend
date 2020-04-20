@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import GoogleSignin from "../Google/GoogleSignin";
+
 import { connect } from "react-redux";
 import { signup } from "../../redux/action/authUserAction";
 import "../Forms/Form.css";
+// import GoogleAuth from "../GoogleAuth/GoogleAuth";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
@@ -139,7 +140,14 @@ class Signup extends Component {
             </div>
           </form>
           <div className="class-btn-google-sign-in">
-            <GoogleSignin />
+            {/* <GoogleAuth /> */}
+            <a href='http://localhost:3001/auth/google'>
+              <span>
+                <div>
+                  Sign In With Google
+                </div>
+              </span>
+            </a>
           </div>
         </div>
       </div>

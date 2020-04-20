@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signin } from "../../redux/action/authUserAction";
 import { getAllCloudinaryImages } from "../../redux/action/cloudinaryAction";
-
-import GoogleSignin from "../Google/GoogleSignin";
+// import GoogleAuth from "../GoogleAuth/GoogleAuth";
 import "../Forms/Form.css";
 
 const emailRegex = RegExp(
@@ -40,6 +39,7 @@ class Signin extends Component {
     if (this.props.authUser.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
+    console.log(this.props.history.location)
   }
 
   handleSubmit = async (e) => {
@@ -98,6 +98,7 @@ class Signin extends Component {
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
 
+
   render() {
     const { formErrors } = this.state;
 
@@ -140,7 +141,14 @@ class Signin extends Component {
             </div>
           </form>
           <div className="class-btn-google-sign-in">
-            <GoogleSignin />
+            {/* <GoogleAuth /> */}
+            <a href='http://localhost:3001/auth/google'>
+              <span>
+                <div>
+                  Sign In With Google
+                </div>
+              </span>
+            </a>
           </div>
         </div>
       </div>
