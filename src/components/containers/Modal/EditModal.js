@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 class EditModal extends Component {
 
     state = {
-        startDate: new Date(),
+        startDate: new Date(this.props.info.startDate * 1000),
         price: this.props.info.price,
         subscriptionType: this.props.info.subscriptionType,
         subscriptionName: this.props.info.subscriptionName,

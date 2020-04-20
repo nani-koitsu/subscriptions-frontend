@@ -63,7 +63,7 @@ class SearchModal extends React.Component {
       .addUserSubscription(submitObj)
       .then(() => {
         this.setState({
-          startDate: "",
+          startDate: new Date(),
           price: 0,
           subscriptionType: "",
           subscriptionName: "",
