@@ -9,6 +9,10 @@ const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 );
 
+const nameRegex = RegExp(/[0-9]/);
+
+const phoneRegex = RegExp(/[0-9]{3}-[0-9]{3}-[0-9]{4}/);
+
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
@@ -29,9 +33,15 @@ class Signup extends Component {
   state = {
     email: "",
     password: "",
+    firstName: "",
+    lastName: "",
+    phone: "",
     formErrors: {
       email: "",
       password: "",
+      firstName: "",
+      lastName: "",
+      phone: ""
     },
   };
 
@@ -52,6 +62,9 @@ class Signup extends Component {
       const user = {
         email: this.state.email,
         password: this.state.password,
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        phone: this.state.phone
       };
       this.props
         .signup(user)
@@ -59,9 +72,15 @@ class Signup extends Component {
           this.setState({
             email: "",
             password: "",
+            firstName: "",
+            lastName: "",
+            phone: "",
             formErrors: {
               email: "",
               password: "",
+              firstName: "",
+              lastName: "",
+              phone: ""
             },
           });
           this.props.history.push("/signin");
@@ -91,6 +110,19 @@ class Signup extends Component {
         formErrors.password =
           value.length < 6 ? "minimum 6 characaters required" : "";
         break;
+      case "firstName":
+        formErrors.firstName = 
+          value.match(nameRegex) ? "please enter a valid name" : "";
+        break;
+      case "lastName":
+        formErrors.lastName = 
+          value.match(nameRegex) ? "please enter a valid name" : "";
+        break;
+      case "phone":
+        formErrors.phone = 
+          !value.match(phoneRegex) ? "please follow the correct format" : "";
+        break;
+
       default:
         break;
     }
@@ -106,6 +138,36 @@ class Signup extends Component {
         <div className="form-wrapper">
           <h1>Create Account</h1>
           <form onSubmit={this.handleSubmit} noValidate>
+            <div className="names">
+              <div className='firstName'>
+                <label htmlFor="firstName">First Name</label>
+                <input 
+                  className={formErrors.firstName.length > 0 ? "error" : null}
+                  placeholder="First Name"
+                  type="text"
+                  name="firstName"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.firstName.length > 0 && (
+                <span className="errorMessage">{formErrors.firstName}</span>
+              )}
+              </div>
+              <div className='lastName'>
+                <label htmlFor="lastName">Last Name</label>
+                <input 
+                  className={formErrors.lastName.length > 0 ? "error" : null}
+                  placeholder="Last Name"
+                  type="text"
+                  name="lastName"
+                  noValidate
+                  onChange={this.handleChange}
+                />
+                {formErrors.lastName.length > 0 && (
+                <span className="errorMessage">{formErrors.lastName}</span>
+              )}
+              </div>
+            </div>
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
@@ -132,6 +194,20 @@ class Signup extends Component {
               />
               {formErrors.password.length > 0 && (
                 <span className="errorMessage">{formErrors.password}</span>
+              )}
+            </div>
+            <div className="phone">
+              <label htmlFor="phone">Phone Number</label>
+              <input
+                className={formErrors.phone.length > 0 ? "error" : null}
+                placeholder="000-000-0000"
+                type="tel"
+                name="phone"
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.phone.length > 0 && (
+                <span className="errorMessage">{formErrors.phone}</span>
               )}
             </div>
             <div className="createAccount">

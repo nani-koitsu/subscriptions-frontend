@@ -63,16 +63,24 @@ input.error {
   display: relative;
 }
 
+.names {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .firstName {
   margin-right: 1%;
 }
 
 .lastName {
   margin-left: 1%;
+  align-self: flex-end;
 }
 
 .firstName,
 .lastName,
+.phone,
 .email,
 .password {
   display: flex;
