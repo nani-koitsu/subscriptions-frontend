@@ -51,6 +51,12 @@ class EditModal extends Component {
         event.preventDefault();
 
         this.props.editSubscriptionById(this.state)
+            .then(() => {
+                this.closeModal()
+            })
+            .catch(error => {
+                console.log(error)
+            })
     };
 
     render() {
