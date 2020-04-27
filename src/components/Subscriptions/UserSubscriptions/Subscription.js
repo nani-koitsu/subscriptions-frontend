@@ -14,6 +14,7 @@ class Subscription extends Component {
     startDate: "",
     picture: "",
     id: "",
+    daysPrior: ''
   };
 
   handleOnClick = () => {

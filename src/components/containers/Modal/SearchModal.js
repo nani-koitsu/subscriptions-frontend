@@ -16,6 +16,7 @@ class SearchModal extends React.Component {
     subscriptionType: "",
     subscriptionName: "",
     picture: "",
+    daysPrior: '1'
   };
 
   openModal = () => {
@@ -48,6 +49,7 @@ class SearchModal extends React.Component {
       subscriptionType,
       subscriptionName,
       picture,
+      daysPrior
     } = this.state;
 
     const submitObj = {
@@ -57,6 +59,7 @@ class SearchModal extends React.Component {
       subscriptionName,
       picture,
       submittedBy: this.props.authUser.user.id,
+      daysPrior
     };
 
     this.props
@@ -68,6 +71,7 @@ class SearchModal extends React.Component {
           subscriptionType: "",
           subscriptionName: "",
           picture: "",
+          daysPrior: '1'
         });
         this.closeModal();
       })
@@ -130,13 +134,23 @@ class SearchModal extends React.Component {
                 />
                 <br />
                 <label htmlFor="">Type of Subscription </label>
-                <div className="custom-select" style={{ width: 200 }}>
+                <div className="custom-select" style={{ width: 175 }}>
                   <select name="subscriptionType" onChange={this.handleChange}>
                     <option value="0">Select Subscription:</option>
                     <option value="Weekly">Weekly</option>
                     <option value="Bi Weekly">Bi Weekly</option>
                     <option value="Monthly">Monthly</option>
                     <option value="Yearly">Yearly</option>
+                  </select>
+                </div>
+                <label htmlFor="">Reminder days prior: </label>
+                <div className="daysPrior" style={{ width: 200 }}>
+                  <select name="daysPrior" onChange={this.handleChange}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
                   </select>
                 </div>
                 <button type="submit">Submit</button>{" "}

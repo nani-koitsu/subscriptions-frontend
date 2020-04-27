@@ -14,7 +14,8 @@ class EditModal extends Component {
         subscriptionType: this.props.info.subscriptionType,
         subscriptionName: this.props.info.subscriptionName,
         image: this.props.info.picture,
-        subID: this.props.info._id
+        subID: this.props.info._id,
+        daysPrior: this.props.info.daysPrior
     };
 
 
@@ -33,6 +34,7 @@ class EditModal extends Component {
     };
 
     handleChange = (event) => {
+        console.log(event.target);
         this.setState({
             [event.target.name]: event.target.value,
         });
@@ -114,6 +116,20 @@ class EditModal extends Component {
                                         <option value="Yearly">Yearly</option>
                                     </select>
                                 </div>
+                                <label htmlFor="">Reminder days prior: </label>
+                                    <div className="daysPrior" style={{ width: 200 }}>
+                                    <select 
+                                        name="daysPrior" 
+                                        onChange={this.handleChange}
+                                        defaultValue={this.state.daysPrior}
+                                    >
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                    </div>
                                 <button type="submit">Submit</button>{" "}
                                 <button onClick={this.closeModal}>Cancel</button>
                             </form>
