@@ -142,7 +142,7 @@ class Signin extends Component {
           </form>
           <div className="class-btn-google-sign-in">
             {/* <GoogleAuth /> */}
-            <a href='http://localhost:3001/auth/google'>
+            <a href='http://localhost:3001/api/auth/google'>
               <span>
                 <div>
                   Sign In With Google

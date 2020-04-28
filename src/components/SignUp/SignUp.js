@@ -111,15 +111,15 @@ class Signup extends Component {
           value.length < 6 ? "minimum 6 characaters required" : "";
         break;
       case "firstName":
-        formErrors.firstName = 
+        formErrors.firstName =
           value.match(nameRegex) ? "please enter a valid name" : "";
         break;
       case "lastName":
-        formErrors.lastName = 
+        formErrors.lastName =
           value.match(nameRegex) ? "please enter a valid name" : "";
         break;
       case "phone":
-        formErrors.phone = 
+        formErrors.phone =
           !value.match(phoneRegex) ? "please follow the correct format" : "";
         break;
 
@@ -141,7 +141,7 @@ class Signup extends Component {
             <div className="names">
               <div className='firstName'>
                 <label htmlFor="firstName">First Name</label>
-                <input 
+                <input
                   className={formErrors.firstName.length > 0 ? "error" : null}
                   placeholder="First Name"
                   type="text"
@@ -150,12 +150,12 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
                 {formErrors.firstName.length > 0 && (
-                <span className="errorMessage">{formErrors.firstName}</span>
-              )}
+                  <span className="errorMessage">{formErrors.firstName}</span>
+                )}
               </div>
               <div className='lastName'>
                 <label htmlFor="lastName">Last Name</label>
-                <input 
+                <input
                   className={formErrors.lastName.length > 0 ? "error" : null}
                   placeholder="Last Name"
                   type="text"
@@ -164,8 +164,8 @@ class Signup extends Component {
                   onChange={this.handleChange}
                 />
                 {formErrors.lastName.length > 0 && (
-                <span className="errorMessage">{formErrors.lastName}</span>
-              )}
+                  <span className="errorMessage">{formErrors.lastName}</span>
+                )}
               </div>
             </div>
             <div className="email">
@@ -217,7 +217,7 @@ class Signup extends Component {
           </form>
           <div className="class-btn-google-sign-in">
             {/* <GoogleAuth /> */}
-            <a href='http://localhost:3001/auth/google'>
+            <a href='http://localhost:3001/api/auth/google'>
               <span>
                 <div>
                   Sign In With Google
