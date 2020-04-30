@@ -1,8 +1,8 @@
 import axios from "axios";
-import envConfig from '../../config'
+
 
 const Axios = axios.create({
-  baseURL: envConfig.baseUrl,
+  baseURL: process.env.NODE_ENV === 'development' ? 'http://localhost:3001/api' : '',
   timeout: 50000,
   crossdomain: true,
   headers: {

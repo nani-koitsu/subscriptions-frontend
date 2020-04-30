@@ -8,7 +8,7 @@ import Axios from "../../lib/Axios/Axios";
 
 export const signup = (userInfo) => async (dispatch) => {
   try {
-    let success = await Axios.post("/api/users/signup", userInfo);
+    let success = await Axios.post("/users/signup", userInfo);
 
     return Promise.resolve(success.data.message);
   } catch (e) {
@@ -19,7 +19,7 @@ export const signup = (userInfo) => async (dispatch) => {
 
 export const signin = (userInfo) => async (dispatch) => {
   try {
-    let success = await Axios.post("/api/users/signin", userInfo);
+    let success = await Axios.post("/users/signin", userInfo);
 
     let { token } = success.data;
     dispatch(setAuthSuccessUser(token));
@@ -32,8 +32,8 @@ export const signin = (userInfo) => async (dispatch) => {
 
 export const userFillInInfo = (userInfo) => async (dispatch) => {
   try {
-    await Axios.post("/api/users/update-user-info", userInfo);
-    await Axios.post("/api/users/submit-survey", userInfo);
+    await Axios.post("/users/update-user-info", userInfo);
+    await Axios.post("/users/submit-survey", userInfo);
     return Promise.resolve();
   } catch (e) {
     return Promise.reject(e);
