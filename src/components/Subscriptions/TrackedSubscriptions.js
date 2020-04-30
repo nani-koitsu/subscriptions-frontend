@@ -20,8 +20,8 @@ class TrackedSubscriptions extends React.Component {
       return <>{allUserSubscriptions}</>;
     } else {
       return (
-        <div>
-          Add Subscriptions
+        <div className='empty-sub__container'>
+          Add Subscriptions To Get Started!
         </div>
       )
 

@@ -37,6 +37,8 @@ class Subscription extends Component {
   };
 
   render() {
+
+    let date = new Date(this.props.reminderDate * 1000).toDateString();
     return (
       <div className="subscription-row">
         <div className="image-container">
@@ -47,10 +49,11 @@ class Subscription extends Component {
           ></img>
         </div>
         <p className="sub-name">{this.props.subscriptionName}</p>
-        <div className="spacer"></div>
+        <p className='sub-reminder'>reminder on {date}</p>
+        {/* <div className="spacer"></div> */}
         <div className="subscription-row-items">
           <ul>
-            <li>{this.props.price}</li>
+            <li>${this.props.price}</li>
             <li>{this.props.subscriptionType}</li>
           </ul>
         </div>

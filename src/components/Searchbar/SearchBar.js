@@ -27,7 +27,6 @@ class SearchBar extends React.Component {
   };
 
   searchResults = () => {
-    console.log(this.state.searchText)
     const value = this.state.searchText;
     let searchSuggestions = [];
     if (value.length > 0) {
