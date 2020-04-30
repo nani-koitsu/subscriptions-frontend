@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signin } from "../../redux/action/authUserAction";
 import { getAllCloudinaryImages } from "../../redux/action/cloudinaryAction";
-// import GoogleAuth from "../GoogleAuth/GoogleAuth";
+import GoogleButton from '../Button/GoogleButton'
 import "../Forms/Form.css";
 
 const emailRegex = RegExp(
@@ -39,6 +39,7 @@ class Signin extends Component {
     if (this.props.authUser.isAuthenticated) {
       this.props.history.push("/dashboard");
     }
+
     console.log(this.props.history.location)
   }
 
@@ -140,15 +141,9 @@ class Signin extends Component {
               <small>Don't Have an Account?</small>
             </div>
           </form>
-          <div className="class-btn-google-sign-in">
-            {/* <GoogleAuth /> */}
-            <a href='http://localhost:3001/api/auth/google'>
-              <span>
-                <div>
-                  Sign In With Google
-                </div>
-              </span>
-            </a>
+          {/* <div className="class-btn-google-sign-in"> */}
+          <div>
+            <GoogleButton />
           </div>
         </div>
       </div>

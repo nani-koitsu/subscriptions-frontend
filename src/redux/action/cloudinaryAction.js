@@ -3,7 +3,7 @@ import Axios from "../../lib/Axios/Axios";
 
 export const getAllCloudinaryImages = () => async (dispatch) => {
   try {
-    let success = await Axios.get("/cloudinary");
+    let success = await Axios.get("/api/cloudinary");
     dispatch({
       type: CLOUDINARY_FETCH_ALL_IMAGES,
       payload: success.data,

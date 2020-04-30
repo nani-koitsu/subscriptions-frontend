@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { withRouter, Redirect } from "react-router-dom";
 import SearchBar from "../../Searchbar/SearchBar";
-import "./Dashboard.css";
-import { getAllUserSubscriptions } from "../../../redux/action/subscriptionAction";
-import { getAllCloudinaryImages } from "../../../redux/action/cloudinaryAction";
 import TrackedSubscriptions from "../../Subscriptions/TrackedSubscriptions";
+import { getAllCloudinaryImages } from "../../../redux/action/cloudinaryAction";
+import { getAllUserSubscriptions } from "../../../redux/action/subscriptionAction";
+import "./Dashboard.css";
 
 class Dashboard extends Component {
   state = {
@@ -19,7 +19,7 @@ class Dashboard extends Component {
     this.props.getAllCloudinaryImages();
     this.props.getAllUserSubscriptions(this.props.authUser.user.id);
   }
-  
+
   render() {
     return (
       <div className="dashboard-container">
@@ -29,8 +29,8 @@ class Dashboard extends Component {
             <TrackedSubscriptions />
           </>
         ) : (
-          <Redirect to="/signin" />
-        )}
+            <Redirect to="/signin" />
+          )}
       </div>
     );
   }

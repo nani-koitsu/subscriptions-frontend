@@ -10,7 +10,7 @@ import Axios from "../../lib/Axios/Axios";
 export const addUserSubscription = (subInfo) => async (dispatch) => {
   try {
     let success = await Axios.post(
-      "/subscription/create-subscription",
+      "/api/subscription/create-subscription",
       subInfo
     );
     dispatch({
@@ -28,7 +28,7 @@ export const addUserSubscription = (subInfo) => async (dispatch) => {
 export const getAllUserSubscriptions = (id) => async (dispatch) => {
   try {
     let foundAllUserSubs = await Axios.get(
-      `/subscription/get-all-user-subscriptions/${id}`
+      `/api/subscription/get-all-user-subscriptions/${id}`
     );
     dispatch({
       type: GET_ALL_USER_SUBSCRIPTIONS,
@@ -42,9 +42,9 @@ export const getAllUserSubscriptions = (id) => async (dispatch) => {
 
 export const deleteSubscriptionById = (id) => async (dispatch) => {
   try {
-    
-    let deletedSubId = await Axios.delete(`/subscription/delete-by-id/${id}`);
-    
+
+    let deletedSubId = await Axios.delete(`/api/subscription/delete-by-id/${id}`);
+
     console.log(deletedSubId, 'line 46 action');
 
     dispatch({
@@ -59,7 +59,7 @@ export const deleteSubscriptionById = (id) => async (dispatch) => {
 
 export const editSubscriptionById = (info) => async (dispatch) => {
   try {
-    let editSub = await Axios.put(`/subscription/edit-user-sub/${info.subID}`, info);
+    let editSub = await Axios.put(`/api/subscription/edit-user-sub/${info.subID}`, info);
     console.log(editSub)
 
     dispatch({

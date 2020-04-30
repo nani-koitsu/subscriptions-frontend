@@ -8,7 +8,7 @@ import Axios from "../../lib/Axios/Axios";
 
 export const signup = (userInfo) => async (dispatch) => {
   try {
-    let success = await Axios.post("/users/signup", userInfo);
+    let success = await Axios.post("/api/users/signup", userInfo);
 
     return Promise.resolve(success.data.message);
   } catch (e) {
@@ -18,7 +18,7 @@ export const signup = (userInfo) => async (dispatch) => {
 
 export const signin = (userInfo) => async (dispatch) => {
   try {
-    let success = await Axios.post("/users/signin", userInfo);
+    let success = await Axios.post("/api/users/signin", userInfo);
 
     let { token } = success.data;
     dispatch(setAuthSuccessUser(token));

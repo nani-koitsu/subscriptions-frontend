@@ -5,6 +5,7 @@ import "./Landing.css";
 import video from './video/coding-video.vid'
 class Landing extends Component {
   render() {
+
     console.log(this.props)
     return (
       <>
