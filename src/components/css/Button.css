@@ -51,7 +51,7 @@
 }
 
 
-html,
+/* html,
 body {
   height: 100%;
 }
@@ -61,7 +61,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 button ~ button {
   margin-left: 20px;

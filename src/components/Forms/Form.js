@@ -1,6 +1,6 @@
 // import React, { Component } from "react";
 // import GoogleSignIn from "../Google/GoogleSignin";
-// import "./Form.css";
+// import "../css/Form.css";
 
 // const emailRegex = RegExp(
 //   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

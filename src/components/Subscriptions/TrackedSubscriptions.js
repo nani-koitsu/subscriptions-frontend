@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import Subscription from "./UserSubscriptions/Subscription";
+import Subscription from "./Subscription";
 import { getAllUserSubscriptions } from "../../redux/action/subscriptionAction";
 
 class TrackedSubscriptions extends React.Component {

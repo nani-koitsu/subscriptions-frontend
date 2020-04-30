@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
 import { addUserSubscription } from "../../../redux/action/subscriptionAction";
-import "./ModalContainer.css";
+import "../../css/ModalContainer.css";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";

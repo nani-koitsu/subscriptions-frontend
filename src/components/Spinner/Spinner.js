@@ -1,5 +1,5 @@
 import React from "react";
-import "./Spinner.css";
+import "../css/Spinner.css";
 
 const Spinner = () => (
   <div className="loader" style={{ marginTop: "15%" }}>

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./Subscriptions.css";
+import "../css/Subscriptions.css";
 // import editIcon from "./svg/cycle.svg";
 import actionIcon from "./svg/unread.svg";
-import EditModal from "../../containers/Modal/EditModal";
+import EditModal from "../containers/Modal/EditModal";
 
 class Subscription extends Component {
   state = {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signup } from "../../redux/action/authUserAction";
-import "../Forms/Form.css";
+import "../css/Form.css";
 import GoogleButton from '../Button/GoogleButton'
 // import GoogleAuth from "../GoogleAuth/GoogleAuth";
 

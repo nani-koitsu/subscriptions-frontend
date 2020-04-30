@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { signin } from "../../redux/action/authUserAction";
 import { getAllCloudinaryImages } from "../../redux/action/cloudinaryAction";
 import GoogleButton from '../Button/GoogleButton'
-import "../Forms/Form.css";
+import "../css/Form.css";
 
 const emailRegex = RegExp(
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/

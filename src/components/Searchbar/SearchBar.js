@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "./SearchBar.css";
+import "../css/SearchBar.css";
 import SearchModal from "../containers/Modal/SearchModal";
 class SearchBar extends React.Component {
   state = {
@@ -36,6 +36,9 @@ class SearchBar extends React.Component {
 
   handleOnClick = (info) => {
     this.openModalHandler(info);
+    this.setState({
+      text: ''
+    })
   };
 
   renderSearch = () => {
@@ -75,7 +78,7 @@ class SearchBar extends React.Component {
       name: info.name,
       picture: info.picture,
     });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   closeModalHandler = () => {

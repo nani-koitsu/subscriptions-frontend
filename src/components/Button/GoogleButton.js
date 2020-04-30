@@ -1,5 +1,5 @@
 import React from 'react'
-import './Button.css'
+import '../css/Button.css'
 import envConfig from '../../config'
 
 const GoogleButton = () => {

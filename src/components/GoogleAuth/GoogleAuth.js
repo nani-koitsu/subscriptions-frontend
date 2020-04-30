@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import GoogleSvg from "./google-logo.svg";
 import { connect } from 'react-redux'
 import { setAuthSuccessUser } from '../../redux/action/authUserAction'
-// import "./GoogleAuth.css";
+// import "../css/GoogleAuth.css";
 import queryString from 'query-string'
 class GoogleAuth extends Component {
 

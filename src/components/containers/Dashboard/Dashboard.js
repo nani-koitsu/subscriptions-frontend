@@ -5,7 +5,7 @@ import SearchBar from "../../Searchbar/SearchBar";
 import TrackedSubscriptions from "../../Subscriptions/TrackedSubscriptions";
 import { getAllCloudinaryImages } from "../../../redux/action/cloudinaryAction";
 import { getAllUserSubscriptions } from "../../../redux/action/subscriptionAction";
-import "./Dashboard.css";
+import "../../css/Dashboard.css";
 
 class Dashboard extends Component {
   state = {

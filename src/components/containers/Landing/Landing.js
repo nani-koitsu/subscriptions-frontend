@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Dashboard from "../Dashboard/Dashboard";
 import { connect } from "react-redux";
-import "./Landing.css";
+import "../../css/Landing.css";
 import video from './video/coding-video.vid'
 class Landing extends Component {
   render() {

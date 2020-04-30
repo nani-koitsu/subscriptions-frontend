@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "./Toolbar.css";
+import "../css/Toolbar.css";
 // import DrawerToggleButton from "../SideDrawer/DrawerToggleButton";
 import { logout } from "../../redux/action/authUserAction";
 import { connect } from "react-redux";
@@ -19,7 +19,6 @@ class Toolbar extends Component {
             to="/logout"
             activeStyle={{
               fontWeight: "bold",
-              color: "orange",
               textDecorationLine: "underline"
             }}
             className="logout"

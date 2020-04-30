@@ -14,7 +14,7 @@ export const addUserSubscription = (subInfo) => async (dispatch) => {
       subInfo
     );
     let appointment = await Axios.post('/api/twilio/create-appointment', subscription.data)
-    console.log(appointment)
+    
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
       payload: subscription.data,
