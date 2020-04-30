@@ -39,9 +39,9 @@ class SearchModal extends React.Component {
   };
 
   onSubmit = async (e) => {
-    console.log(`before submit`, this.state);
+    // console.log(`before submit`, this.state);
     e.preventDefault();
-    console.log(`after submit`, this.state);
+    // console.log(`after submit`, this.state);
     // console.log("MODALCONTAINER ON SUBMIT :", this.props.authUser.user.id);
     const {
       startDate,

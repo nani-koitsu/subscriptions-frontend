@@ -12,7 +12,6 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case ADD_USER_SUBSCRIPTION:
-      // console.log(action.payload);
       let newSubscriptionsArr = [...state.userSubscriptions, action.payload];
       return {
         ...state,
@@ -27,7 +26,7 @@ export default function (state = initialState, action) {
 
     case DELETE_USER_SUBSCRIPTION:
       let updatedSubList = state.userSubscriptions.filter(item => item._id !== action.payload._id)
-      console.log(updatedSubList)
+      
       return {
         ...state,
         userSubscriptions: updatedSubList
