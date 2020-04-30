@@ -142,7 +142,7 @@ class Signin extends Component {
             </div>
           </form>
           {/* <div className="class-btn-google-sign-in"> */}
-          <div>
+          <div className="google-button__container">
             <GoogleButton />
           </div>
         </div>
