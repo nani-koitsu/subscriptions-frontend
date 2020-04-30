@@ -10,10 +10,10 @@ import Axios from "../../lib/Axios/Axios";
 export const addUserSubscription = (subInfo) => async (dispatch) => {
   try {
     let subscription = await Axios.post(
-      "/api/subscription/create-subscription",
+      "/subscription/create-subscription",
       subInfo
     );
-    let appointment = await Axios.post('/api/twilio/create-appointment', subscription.data)
+    let appointment = await Axios.post('/twilio/create-appointment', subscription.data)
     
     dispatch({
       type: ADD_USER_SUBSCRIPTION,
@@ -33,7 +33,7 @@ export const addUserSubscription = (subInfo) => async (dispatch) => {
 export const getAllUserSubscriptions = (id) => async (dispatch) => {
   try {
     let foundAllUserSubs = await Axios.get(
-      `/api/subscription/get-all-user-subscriptions/${id}`
+      `/subscription/get-all-user-subscriptions/${id}`
     );
     dispatch({
       type: GET_ALL_USER_SUBSCRIPTIONS,
@@ -47,8 +47,8 @@ export const getAllUserSubscriptions = (id) => async (dispatch) => {
 
 export const deleteSubscriptionById = (subInfo) => async (dispatch) => {
   try {
-    let deletedSubId = await Axios.delete(`/api/subscription/delete-by-id/${subInfo.subID}`, {data: subInfo});
-  
+    let deletedSubId = await Axios.delete(`/subscription/delete-by-id/${subInfo.subID}`, { data: subInfo });
+
     dispatch({
       type: DELETE_USER_SUBSCRIPTION,
       payload: deletedSubId.data.deletedSub
@@ -60,7 +60,7 @@ export const deleteSubscriptionById = (subInfo) => async (dispatch) => {
 
 export const editSubscriptionById = (info) => async (dispatch) => {
   try {
-    let editSub = await Axios.put(`/api/subscription/edit-user-sub/${info.subID}`, info);
+    let editSub = await Axios.put(`/subscription/edit-user-sub/${info.subID}`, info);
     console.log(editSub)
 
     dispatch({
