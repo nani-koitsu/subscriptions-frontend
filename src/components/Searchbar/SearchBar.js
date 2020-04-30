@@ -10,6 +10,7 @@ class SearchBar extends React.Component {
     isOpen: false,
     name: "",
     picture: "",
+    searchText: ''
   };
 
   componentDidMount() {
@@ -20,7 +21,14 @@ class SearchBar extends React.Component {
   }
 
   handleTextOnChange = (e) => {
-    const value = e.target.value;
+    this.setState({
+      [e.target.name]: e.target.value
+    }, () => this.searchResults());
+  };
+
+  searchResults = () => {
+    console.log(this.state.searchText)
+    const value = this.state.searchText;
     let searchSuggestions = [];
     if (value.length > 0) {
       const regex = new RegExp(`^${value}`, "i");
@@ -31,15 +39,16 @@ class SearchBar extends React.Component {
         .sort()
         .filter((item) => regex.test(item));
     }
-    this.setState({ searchSuggestions, text: value });
-  };
+    this.setState({ searchSuggestions });
+  }
 
   handleOnClick = (info) => {
     this.openModalHandler(info);
-    this.setState({
-      text: ''
-    })
   };
+
+  reset = (e) => {
+    
+  }
 
   renderSearch = () => {
     const { cloudinaryList } = this.props.cloudinaryImages;
@@ -77,8 +86,8 @@ class SearchBar extends React.Component {
       isOpen: !this.state.isOpen,
       name: info.name,
       picture: info.picture,
-    });
-    // console.log(this.state);
+      searchText: ''
+    }, () => this.searchResults());
   };
 
   closeModalHandler = () => {
@@ -96,7 +105,10 @@ class SearchBar extends React.Component {
           onChange={this.handleTextOnChange}
           placeholder="Subscription Name"
           type="text"
+          name='searchText'
           className="input-field"
+          onFocus={this.reset()}
+          value={this.state.searchText}
         />
 
         {this.renderSearch()}
