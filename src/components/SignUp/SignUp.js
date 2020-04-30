@@ -216,7 +216,7 @@ class Signup extends Component {
               <small>Already Have an Account?</small>
             </div>
           </form>
-          <div className="class-btn-google-sign-in">
+          <div className="class-btn-google-sign-in google-button__container">
             <GoogleButton />
           </div>
         </div>

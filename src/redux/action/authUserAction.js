@@ -12,6 +12,7 @@ export const signup = (userInfo) => async (dispatch) => {
 
     return Promise.resolve(success.data.message);
   } catch (e) {
+    console.log(e)
     return Promise.reject(e);
   }
 };
