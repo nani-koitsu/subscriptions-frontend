@@ -65,7 +65,7 @@ export const editSubscriptionById = (info) => async (dispatch) => {
 
     dispatch({
       type: EDIT_USER_SUBSCRIPTION,
-      payload: editSub.data
+      payload: editSub.data.updatedSubscription
     })
   } catch (error) {
     console.log(error);
