@@ -15,9 +15,9 @@ class EditModal extends Component {
         subscriptionName: this.props.info.subscriptionName,
         image: this.props.info.picture,
         subID: this.props.info._id,
-        daysPrior: this.props.info.daysPrior
+        daysPrior: this.props.info.daysPrior,
+        submittedBy: this.props.info.submittedBy
     };
-
 
     openModal = () => {
         this.props.openModalHandler();
@@ -41,12 +41,8 @@ class EditModal extends Component {
     };
 
     deleteSub = () => {
-        this.props.deleteSubscriptionById(this.state.subID)
-            .then(() => {
-                console.log("success")
-                this.closeModal();
-            })
-            
+        this.props.deleteSubscriptionById(this.state)
+        this.closeModal();
     };
 
     onSubmit = (event) => {
